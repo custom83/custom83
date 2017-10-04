@@ -96,6 +96,12 @@ Abaixo estão descritos de forma resumida o papel dos atores do site CUSTOM83:
 - ATOM
 
 
+### EAP CUSTOM83
+
+![eap](https://user-images.githubusercontent.com/32046433/31191640-2b5c1d68-a915-11e7-9e8a-b92f8cb6cee8.png)
+
+
+
 ### 5.Cronograma
 
 | Sprint 1 - 2 semanas -  28/08 à 10/09 | Responsável |
@@ -196,8 +202,11 @@ Abaixo estão descritos de forma resumida o papel dos atores do site CUSTOM83:
 ### 3. Especificação dos Requisitos Funcionais
 
 #### 3.1 RF01 - AUTENTICAÇÃO DO USUÁRIO
-Para acesso a área administrativa, deve-se existir uma autenticação de usuário que pode ser feita através dos seguintes
+Para acesso a área administrativa, deve existir uma autenticação de usuário que pode ser feita através dos seguintes
 parâmetros:
+- Formulário Input Type Text para o campo LOGIN.
+- Formulário Input Type password para o campo SENHA.
+- Input Type buttom para o SUBMIT do usuário
 
 #### 3.2 RF2: MANUTENÇÃO DOS CLIENTES.
 O sistema deve ter um CRUD para manutenção dos clientes, esse o qual teremos duas superclasses "Pessoa Fisica" e "Pessoa Jurídica" que poderão ser extendidas e referenciadas pelas classes filhas "Loja" e "Prestador de Serviço"
