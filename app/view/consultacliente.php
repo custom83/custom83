@@ -324,12 +324,14 @@ desired effect
                   <th>Nome</th>
                   <th>Data</th>
                   <th>Email</th>
+                  <th>Desativar</th>
                 </tr>
                 <tr>
                   <td>183</td>
                   <td>Italo Nascimento</td>
                   <td>28-10-17</td>
                   <td>italonascimento89@gmail.com</td>
+                  <td><a href="#"><i class="fa fa-unlock" title="Bloquear" alt="Bloquear"></i></a></td>
                 </tr>
               </tbody></table>
             </div>
