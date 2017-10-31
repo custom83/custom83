@@ -41,7 +41,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`) VALUES (1000000001,'Fabio','fabiodeveloperti@gmail.com','$2a$08$MTY2NzI3OTY3MTU5MzZiZ.zHbu/nhpbO.Lckf/Ay/vueZQP3HxKmK');
+INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`) VALUES (1000000001,'Fabio','teste@custom83.com','$2a$08$MTY2NzI3OTY3MTU5MzZiZ.zHbu/nhpbO.Lckf/Ay/vueZQP3HxKmK');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

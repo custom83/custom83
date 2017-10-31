@@ -1,33 +1,71 @@
-#columnLeft{
-    background-image: url("../imgs/background.jpg");
-    background-size: cover;
-    width: 70%;
-    height: 100vh;
+html{
+  height:100%;
 }
-#columnRight{
-  flex-direction: column;
-  background-color: white;
+body{
+    height: 100%;
+}
+
+/**Error404**/
+#backgroundError404{
+  height: 100vh;
+  background-image: url("../imgs/background.jpg");
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  height: 100vh;
 }
-.input{
-  width: 265px;
+#alertError404{
+  margin: 10px;
 }
-.button.is-primary{
-  width: 265px;
+.titleError404{
+  color: white;
+  text-align: center;
+  font-size: 20pt;
+}
+.imgError404{
+  width: 350px;
+}
+/*Autencticacão*/
+#alertLogin{
   background-color: #5d2c88;
+  color: white;
+  text-align: center;
+  margin: 0px;
 }
-.senha{
-  color: #5d2c88;
+
+#columnLeft{
+    background-image: url("../imgs/background.jpg");
+    background-size: cover;
+    width: 70%;
+    height: auto;
+}
+
+#columnRight{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
+#inputEmail{
+  width: 280px;
+}
+
+#inputSenha{
+  width: 280px;
+}
+
+#buttonSubmit{
+  width: 265px;
+  width: 280px;
 }
 .site{
   position: absolute;
   color: #5d2c88;
   bottom: 0px;
-
 }
 .site:hover{
   color:#5d2c88;
@@ -36,108 +74,32 @@
 /*FimAutencticacão*/
 
 /*InicioAdm*/
-#columnLeftMenu{
-  display: flex;
-  flex-direction: row;
+#columnMenu{
   background-color: #481a68;
-  height: 100vh;
 }
-
-#columnRightContent{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
-  height: 100vh;
+#infoSection{
   background-color: #dcddde;
 }
-.contentRight{
-  height: 95%;
-  width: 98%;
+#columnInfoPessoais,#columnEndereco,#columnConta{
   background-color: #eff0f0;
 }
-.imgPerfil{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  width: 50%;
-  height: 128px;
-  background-color: #5d2c88;
+#menu{
+  background-color: #481a68;
+  min-height: 100vh;
+  height: auto;
 }
-.infoPerfil{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 50%;
-  height: 128px;
-  background-color: #5d2c88;
+#containerInfoPessoais,#containerEndereco,#containerConta{
+  background-color: #eff0f0;
 }
 
-.title{
-  color: white;
-}
-.subtitle{
-  color: white;
-}
-.titleRecourse{
-
+/**Menu**/
+#menu{
+  padding: 0rem;
 }
 
-.titleContent{
-  position: relative;
-  left: 5px;
-  font-size: 25pt;
-}
-
-.titleRecourse{
-  height: 60px;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: #dcddde;
-  border-top-width: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-}
-#formsSection01{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-#formsSection02{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  position: relative;
-  top: 5px;
-}
-#formsSection03{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  position: relative;
-  top: 20px;
-  left: 18px;
-}
-
-
-.field, .button{
-  position: relative;
-  top: 15px;
-
-}
-.input, select, .button.is-primary, .button.is-info{
-  width: 280px;
-}
-#buttonCadastrar{
-  position: relative;
-  top: 25px;
-}
-
+/* define a fixed width for the entire menu */
 .navigation {
-  width: 100%;
+  width: auto;
 }
 
 /* reset our lists to remove bullet points and padding */
@@ -194,3 +156,4 @@
   max-height: 0;
   -webkit-transition: all 0.5s ease-out;
 }
+/**FimMenu**/
