@@ -6,6 +6,11 @@
   </div>
   <div class="register-box-body">
     <p class="login-box-msg">Acesse o sistema</p>
+    <?php if(isset($_SESSION['erro-email'])){?><div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+              <h4><i class="icon fa fa-ban"></i>Alerta!</h4>Email ou senha inválida</div>
+    <?php } ?>
+    <div id="nome-erro"><?php if(isset($_SESSION['erro-email'])) echo $_SESSION['erro-email'];?></div>
     <form action="autenticar" method="post" id="formLog">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Email" id="email" name="email" autofocus maxlength="100" required="" value="<?php  if(isset($_POST['email'])) echo htmlspecialchars($_POST['email']); ?>" width="48" height="48">
