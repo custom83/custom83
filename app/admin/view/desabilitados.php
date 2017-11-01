@@ -1,72 +1,4 @@
-<!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Custom83.com - O maior portal automotivo da Paraíba</title>
-  <meta charset="utf-8">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
-  <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="plugins/iCheck/all.css">
-  <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
-  <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="plugins/timepicker/bootstrap-timepicker.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="app/assets/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="app/assets/css/skins/_all-skins.min.css">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
+<?php include_once 'app/partlals/header.php'; ?>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
@@ -74,7 +6,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="dashboard-admin" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>C</b>83</span>
       <!-- logo for regular state and mobile devices -->
@@ -106,7 +38,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="app/assets/imgs/user9-640x640.jpg" class="img-circle" alt="User Image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -273,7 +205,7 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU NAVEGAÇÃO</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="dashboard.html"><i class="fa fa-home"></i> <span>DashBoard</span></a></li>
+        <li class="active"><a href="dashboard-admin"><i class="fa fa-home"></i> <span>DashBoard</span></a></li>
         <li><a href="#"><i class="fa fa-sliders"></i> <span>Sliders</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-users"></i> <span>Clientes</span>
@@ -282,10 +214,10 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="usersregister.html">Usuários Registrados</a></li>
-            <li><a href="pessoafisica.html">Pessoa Física</a></li>
-            <li><a href="pessoajuridica.html">Pessoa Juridica</a></li>
-            <li><a href="desabilitados.html">Desabilitados</a></li>
+            <li><a href="dashboard-admin-listagem-usuarios">Usuários Registrados</a></li>
+            <li><a href="dashboard-admin-pessoa-fisica">Pessoa Física</a></li>
+            <li><a href="dashboard-admin-pessoa-juridica">Pessoa Juridica</a></li>
+            <li><a href="dashboard-admin-usuarios-desabilitados">Desabilitados</a></li>
           </ul>
         </li>
         <li><a href="#"><i class="fa fa-university"></i> <span>Lojas</span></a></li>
@@ -309,13 +241,14 @@ desired effect
     <section class="content-header">
       <h1>
         Clientes
-        <small>Pessoa Fisica</small>
+        <small>Desabilitados</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Clientes</a></li>
-        <li class="active">Pessoa Física</li>
+        <li class="active">Desabilitados</li>
       </ol>
     </section>
+
     <!-- Main content -->
     <section class="content container-fluid">
       <div class="row">
@@ -334,7 +267,7 @@ desired effect
                       </div>
                       <div class="form-group">
                         <label for="formEstado">Estado</label>
-                        <select class="form-control" id="formEstado" name="estado">
+                        <select class="form-control" id="formEstado"name="estado">
                           <option value="PB">PB</option>
                         </select>
                       </div>
@@ -348,6 +281,15 @@ desired effect
                         </div>
                         <!-- /.input group -->
                       </div>
+                      <div class="form-group">
+                        <label for="formPlano">Plano</label>
+                        <select class="form-control" id="formPlano" name="plano">
+                          <option value="1">Plano 1</option>
+                          <option value="2">Plano 2</option>
+                          <option value="2">Plano 3</option>
+                        </select>
+                      </div>
+
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
@@ -367,29 +309,39 @@ desired effect
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="formCod">Cod</label>
-                        <div class="input-group">
-                          <div class="input-group-addon">
-                            <i class="fa fa-barcode"></i>
-                          </div>
-                          <input class="form-control" data-inputmask="'mask': ['9999']" data-mask="" type="text" id="formCod" name="codigo">
-                        </div>
-                        <!-- /.input group -->
+                        <label for="formCategoria">Categoria</label>
+                        <select class="form-control" id="formCategoria" name="categoria">
+                          <option value="1">Loja</option>
+                          <option value="2">Prestador de serviço</option>
+                        </select>
                       </div>
                     </div>
                     <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="formSituacao">Situação</label>
-                      <select class="form-control" id="formSituacao" name="sitaucao">
-                        <option value="1">Ativo</option>
-                        <option value="0">Desabilitado</option>
-                      </select>
-                    </div>
+                      <div class="form-group">
+                        <label for="formCnpj">CNPJ</label>
+                        <div class="input-group">
+                          <div class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                          </div>
+                          <input class="form-control" data-inputmask="'mask': ['999.999.999-99']" data-mask="" type="text" id="formCnpj" name="cmpj">
+                        </div>
+                        <!-- /.input group -->
+                      </div>
                     <div class="form-group">
                       <label for="formBairro">Bairro</label>
                       <select class="form-control" id="formBairro" name="bairro">
                         <option value="1">Torre</option>
                       </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="formCod">Cod</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                          <i class="fa fa-barcode"></i>
+                        </div>
+                        <input class="form-control" data-inputmask="'mask': ['9999']" data-mask="" type="text" id="formCod" name="codigo">
+                      </div>
+                      <!-- /.input group -->
                     </div>
                     </div>
                   </div>
@@ -416,9 +368,10 @@ desired effect
                   <th>Data</th>
                   <th>Email</th>
                   <th>Telefone</th>
+                  <th>Produtos</th>
                   <th>Visitas</th>
                   <th>Ativo</th>
-                  <th>Inativar</th>
+                  <th>Ativar</th>
                   <th>Dados</th>
                   <th>Editar</th>
                 </tr>
@@ -429,8 +382,9 @@ desired effect
                   <td>italonascimento89@gmail.com</td>
                   <td>(83) 98700-2783</td>
                   <td>0</td>
-                  <td><span class="label label-primary">Sim</span></td>
-                  <td><a href="#"><i class="fa fa-lock" title="Bloquear" alt="Bloquear"></i></a></td>
+                  <td>0</td>
+                  <td><span class="label label-danger">Não</span></td>
+                  <td><a href="#"><i class="fa fa-unlock" title="Bloquear" alt="Bloquear"></i></a></td>
                   <td><a href="#"><i class="fa fa-info" title="Visualizar Dados" alt="Visualizar Dados"></i></a></td>
                   <td><a href="#"><i class="fa fa-edit" title="Editar" alt="Editar"></i></a></td>
                 </tr>
@@ -548,30 +502,30 @@ desired effect
 </div>
 <!-- ./wrapper -->
 <!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="app/libs/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="app/libs/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Select2 -->
-<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
+<script src="app/libs/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- InputMask -->
-<script src="plugins/input-mask/jquery.inputmask.js"></script>
-<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<script src="app/libs/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="app/libs/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="app/libs/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 <!-- date-range-picker -->
-<script src="bower_components/moment/min/moment.min.js"></script>
-<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="app/libs/bower_components/moment/min/moment.min.js"></script>
+<script src="app/libs/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- bootstrap datepicker -->
-<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="app/libs/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- bootstrap color picker -->
-<script src="bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+<script src="app/libs/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
 <!-- bootstrap time picker -->
-<script src="plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="app/libs/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- SlimScroll -->
-<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="app/libs/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- iCheck 1.0.1 -->
-<script src="plugins/iCheck/icheck.min.js"></script>
+<script src="app/libs/plugins/iCheck/icheck.min.js"></script>
 <!-- FastClick -->
-<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<script src="app/libs/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="app/assets/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->

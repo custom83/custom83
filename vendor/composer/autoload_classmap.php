@@ -11,6 +11,8 @@ return array(
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInit2442d889e593e85c6d0e8dc3abdd5be3' => $vendorDir . '/composer/autoload_static.php',
     'ConexaoDb' => $baseDir . '/app/model/Conexao.class.php',
+    'DaoInsert' => $baseDir . '/app/model/dao/DaoInsert.class.php',
+    'DaoListaUser' => $baseDir . '/app/model/dao/DaoListUser.class.php',
     'DaoLogin' => $baseDir . '/app/model/dao/DaoLogin.class.php',
     'DataValidator' => $baseDir . '/app/controller/DataValidator.php',
     'Endereco' => $baseDir . '/app/model/beans/Endereco.class.php',

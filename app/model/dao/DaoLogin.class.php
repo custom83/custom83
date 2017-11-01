@@ -13,7 +13,7 @@
 
                 $validar = Parent::getInstanceConexao()->prepare($query);
                 $validar->bindValue(":_email",$this->login->getEmail());
-    		    $validar->execute();
+    		        $validar->execute();
 
                 if ($validar->rowCount() === 1) {
                   	$row = $validar->fetch(PDO::FETCH_ASSOC);
@@ -22,9 +22,10 @@
                     $hash = $row['senha'];
 
                     if (Bcrypt::check($pwd, $hash)) {
-                        $_SESSION['id'] = $row['id_usuario'];
-                        //$_SESSION['type_user'] = $row['type'];
-
+                        $_SESSION['nome'] = $row['nome'];
+                        $_SESSION['email'] = $row['email'];
+                        $_SESSION['type_user'] = $row['type'];
+                        $_SESSION['logado'] = true;
                         return true;
                     } else {
                         return false;
@@ -32,7 +33,7 @@
                 } else {
                     return false;
                 }
-            } catch (ErrorException $ex) {
+            } catch (Exception $ex) {
                 return false;
             }
         }

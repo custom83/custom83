@@ -1,4 +1,4 @@
-<?php include_once 'app/view/partlals/header.php'; ?>
+<?php include_once 'app/partlals/header.php'; ?>
 <!--
 BODY TAG OPTIONS:
 =================

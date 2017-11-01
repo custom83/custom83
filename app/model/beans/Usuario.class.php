@@ -1,6 +1,8 @@
 <?php
 class Usuario extends Endereco {
   private $nome;
+  private $email;
+  private $password;
   private $status;
   private $dateCriacao;
   private $dateAtualizacao;
@@ -15,6 +17,12 @@ class Usuario extends Endereco {
 
   public function getNome(){ return $this->nome; }
   public function setNome($nome){ $this->nome = $nome; }
+
+  public function getPassword() { return $this->password; }
+  public function setPassword($password) { $this->password = $password; }
+
+  public function getEmail() { return $this->email; }
+  public function setEmail($email) { $this->email = $email; }
 
   public function getStatus(){ return $this->status; }
   public function setStatus($status){ $this->status = $status; }

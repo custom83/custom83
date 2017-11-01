@@ -1,8 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `custom83` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `custom83`;
--- MySQL dump 10.13  Distrib 5.7.19, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.19, for Linux (i686)
 --
--- Host: 127.0.0.1    Database: custom83
+-- Host: localhost    Database: custom83
 -- ------------------------------------------------------
 -- Server version	5.7.19-0ubuntu0.16.04.1
 
@@ -29,10 +27,14 @@ CREATE TABLE `usuario` (
   `nome` varchar(255) NOT NULL,
   `email` varchar(60) NOT NULL,
   `senha` varchar(255) NOT NULL,
+  `type` varchar(25) DEFAULT 'cnpj',
+  `data_register` datetime DEFAULT CURRENT_TIMESTAMP,
+  `data_update` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status` int(11) DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=1000000001 DEFAULT CHARSET=utf8 DELAY_KEY_WRITE=1;
+) ENGINE=InnoDB AUTO_INCREMENT=1000000012 DEFAULT CHARSET=utf8 DELAY_KEY_WRITE=1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +43,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`) VALUES (1000000001,'Fabio','teste@custom83.com','$2a$08$MTY2NzI3OTY3MTU5MzZiZ.zHbu/nhpbO.Lckf/Ay/vueZQP3HxKmK');
+INSERT INTO `usuario` VALUES (1000000001,'Fabio','teste@custom83.com','$2a$08$MTY2NzI3OTY3MTU5MzZiZ.zHbu/nhpbO.Lckf/Ay/vueZQP3HxKmK','admin','2017-10-31 23:07:43','2017-10-31 23:08:03',1),(1000000003,'fabio 1','fb1@fb.com','$2a$08$Mjg5MzUwODk1OWY5MjllNe8GE9kTRVFExwKStNrhoSbL3jgwAr.pK','cnpj','2017-10-31 23:07:43','2017-11-01 00:00:50',1),(1000000007,'fabio 2','fb2@fb.com','$2a$08$MjA2NDYwMjk1NzU5ZjkyYe14QF5aW2eG.9.iTBLMS/ZhVc9mlhEF.','cnpj','2017-10-31 23:07:43','2017-11-01 00:50:18',0),(1000000008,'fabio 3','fb3@fb.com','$2a$08$NTMwNTYyNDg1NTlmOTJiYOFNUddAQOZnoGrYETOGb4wBgUSREJVg2','cnpj','2017-10-31 23:07:43','2017-11-01 00:00:50',1),(1000000009,'fabio 4','fb4@fb.com','$2a$08$MTE3MjQ2MzU0MDU5ZjkyYeBglq5X/IWNxlSahPHmWCBzkgxDmVh..','cnpj','2017-10-31 23:07:43','2017-11-01 00:00:50',1),(1000000010,'teste2','teste1@custom83.com','$2a$08$MTk2Njk2MTIwMjU5ZjkzZ.L0oHQAJdXYwvHuc9RZsNVEmAGb7w1Ze','cpf','2017-11-01 00:19:53','2017-11-01 00:20:57',1),(1000000011,'teste2','teste2@custom83.com','$2a$08$OTM2ODM4ODEwNTlmOTNkNe1crm0/a2ljsBBYX4GqcIMuw1ZDP7m7q','cpf','2017-11-01 00:20:11','2017-11-01 00:49:05',0);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-23 19:48:48
+-- Dump completed on 2017-11-01  1:48:23
