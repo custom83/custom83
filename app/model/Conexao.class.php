@@ -4,7 +4,7 @@ class ConexaoDb {
 
   private static $SQL = "mysql:host=localhost;dbname=custom83";
   private static $USER = "root";
-  private static $PWD = "fab";
+  private static $PWD = "32253266";
   private $transactionCount = 0;
   private $INSTANCE_CONEXAO = null;
 
