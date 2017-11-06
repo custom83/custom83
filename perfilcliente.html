@@ -47,5 +47,47 @@
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
   </head>
+  <body class="hold-transition register-page">
+  <div class="register-box">
+    <div class="register-logo">
+      <a href="#"><img src="app/assets/imgs/logoLow.png"/></a>
+    </div>
+    <div class="register-box-body"  >
+      <form action="#" method="post">
+        <a href="registropessoafisica.html" <button type="button" class="btn btn-block btn-primary btn-lg">Pessoa Física</button></a>
+        <a href="registropessoajuridica.html"  <button type="button" class="btn btn-block btn-info btn-lg">Pessoa Jurídica</button></a>
+        <div class="row">
+          <!-- /.col -->
+          <!-- <div class="col-xs-4">
+            <input class="btn btn-primary" type="submit" value="" onclick="teste()">
+          </div> -->
+          <!-- /.col -->
+        </div>
+      </form>
+    </div>
+    <!-- /.form-box -->
+  </div>
+  <!-- /.register-box -->
+
+  <!-- jQuery 3 -->
+  <script src="app/libs/bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="app/libs/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- iCheck -->
+  <script src="app/libs/plugins/iCheck/icheck.min.js"></script>
+  <script>
+    $(function () {
+      $('input').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' // optional
+      });
+    });
+    function teste()
+
+
+
+  </script>
+  </body>
+  </html>

@@ -6,7 +6,10 @@
     <a href="#"><img src="app/assets/imgs/logoLow.png"/></a>
   </div>
   <div class="register-box-body">
-    <p class="login-box-msg">Regitre-se</p>
+    <div class="box-header with-border">
+      <button type="button" class="btn btn-block btn-danger btn-flat">ASSINE JÁ</button>
+    </div>
+    <p class="login-box-msg">Registre-se</p>
     <?php if(isset($_SESSION['senha']) || isset($_SESSION['insert'])){?>
             <div class="alert alert-danger alert-dismissible">
               <h4><i class="icon fa fa-ban"></i>Alerta!</h4><?php if(isset($_SESSION['senha'])) echo $_SESSION['senha']; else echo $_SESSION['insert']; ?>
