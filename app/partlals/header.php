@@ -8,9 +8,6 @@
     <!--<link rel="stylesheet" type="text/css" href="app/assets/css/font-awesome.css">-->
     <!-- <script type="text/javascript" src="app/assets/js/style.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Libs JQuerySteps-->
-    <script type="text/javascript" src="app/assets/js/jquery.steps.js"></script>
-    <script type="text/javascript" src="app/assets/js/jquery.steps.min.js"></script>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
