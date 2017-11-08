@@ -458,7 +458,7 @@
 <!-- AdminLTE App -->
 <script src="app/assets/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="app/assets/js/demo.js"></script>
+<!-- <script src="app/assets/js/demo.js"></script> -->
 <!-- Page script -->
 <script>
   $(function () {
