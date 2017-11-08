@@ -24,17 +24,32 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(200) DEFAULT NULL,
   `nome` varchar(255) NOT NULL,
   `email` varchar(60) NOT NULL,
   `senha` varchar(255) NOT NULL,
-  `type` varchar(25) DEFAULT 'cnpj',
+  `permissao` varchar(25) NOT NULL,
+  `status` int(1) DEFAULT '0',
+  `perfil` varchar(100) DEFAULT NULL,
+  `categoria` varchar(100) DEFAULT NULL,
+  `plano` varchar(100) DEFAULT NULL,
+  `site` varchar(150) DEFAULT NULL,
+  `logomarca` varchar(100) DEFAULT NULL,
+  `identificador` varchar(45) DEFAULT NULL,
+  `assinante` int(1) DEFAULT '0',
+  `cep` varchar(9) DEFAULT NULL,
+  `estado` varchar(60) DEFAULT NULL,
+  `cidade` varchar(60) DEFAULT NULL,
+  `bairro` varchar(60) DEFAULT NULL,
+  `rua` varchar(255) DEFAULT NULL,
+  `numero` varchar(45) DEFAULT NULL,
   `data_register` datetime DEFAULT CURRENT_TIMESTAMP,
   `data_update` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `status` int(11) DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=1000000012 DEFAULT CHARSET=utf8 DELAY_KEY_WRITE=1;
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  UNIQUE KEY `identificador_UNIQUE` (`identificador`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 DELAY_KEY_WRITE=1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +58,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1000000001,'Fabio','teste@custom83.com','$2a$08$MTY2NzI3OTY3MTU5MzZiZ.zHbu/nhpbO.Lckf/Ay/vueZQP3HxKmK','admin','2017-10-31 23:07:43','2017-10-31 23:08:03',1),(1000000003,'fabio 1','fb1@fb.com','$2a$08$Mjg5MzUwODk1OWY5MjllNe8GE9kTRVFExwKStNrhoSbL3jgwAr.pK','cnpj','2017-10-31 23:07:43','2017-11-01 00:00:50',1),(1000000007,'fabio 2','fb2@fb.com','$2a$08$MjA2NDYwMjk1NzU5ZjkyYe14QF5aW2eG.9.iTBLMS/ZhVc9mlhEF.','cnpj','2017-10-31 23:07:43','2017-11-01 00:50:18',0),(1000000008,'fabio 3','fb3@fb.com','$2a$08$NTMwNTYyNDg1NTlmOTJiYOFNUddAQOZnoGrYETOGb4wBgUSREJVg2','cnpj','2017-10-31 23:07:43','2017-11-01 00:00:50',1),(1000000009,'fabio 4','fb4@fb.com','$2a$08$MTE3MjQ2MzU0MDU5ZjkyYeBglq5X/IWNxlSahPHmWCBzkgxDmVh..','cnpj','2017-10-31 23:07:43','2017-11-01 00:00:50',1),(1000000010,'teste2','teste1@custom83.com','$2a$08$MTk2Njk2MTIwMjU5ZjkzZ.L0oHQAJdXYwvHuc9RZsNVEmAGb7w1Ze','cpf','2017-11-01 00:19:53','2017-11-01 00:20:57',1),(1000000011,'teste2','teste2@custom83.com','$2a$08$OTM2ODM4ODEwNTlmOTNkNe1crm0/a2ljsBBYX4GqcIMuw1ZDP7m7q','cpf','2017-11-01 00:20:11','2017-11-01 00:49:05',0);
+INSERT INTO `usuario` VALUES (1,NULL,'Admin','admin@custom83.com','$2a$08$MzA5NjkwMDc2NWEwMTg4NuTahKr9ghMSmcO3/CxrlHySZGKuL1Bhi','admin',0,NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,NULL,NULL,NULL,NULL,'','2017-11-07 07:18:27','2017-11-07 07:35:41'),(2,NULL,'user 1','user1@user.com','$2a$08$OTQ5OTAwMzI2NWEwMThlM.aNkz.Wg1AP0vyl8VZM5CtdUvvGQs8US','simples',0,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,'','2017-11-07 07:42:16','2017-11-07 07:45:11'),(3,NULL,'user 2','user2@user.com','$2a$08$NjgwMDQ4MDYzNWEwMThlMet1EFyrDJStHrCUD1/B/2QjhuiiX9BsS','simples',0,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,'','2017-11-07 07:42:46','2017-11-07 07:45:52'),(4,NULL,'user 3','user3@user.com','$2a$08$MTQ2NTk1MjQzODVhMDE4ZOMYMrVm2vk8DGD7NEpvNhX3vUWQhRVGq','simples',0,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,'','2017-11-07 07:43:08','2017-11-07 07:45:59'),(5,NULL,'user 4','user4@user.com','$2a$08$MTAxOTE1Njk2NjVhMDE4ZOHr5hfXKhEobTATwgqip9u/fSgku1USO','simples',0,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,'','2017-11-07 07:43:30','2017-11-07 07:46:04'),(6,NULL,'user 5','user5@user.com','$2a$08$MTc0MzI2NjA3NjVhMDE4ZesOZ/wL8Ai7Y/WKpp5Te5354xNxBEptC','simples',0,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,'','2017-11-07 07:46:48','2017-11-07 07:47:11'),(7,NULL,'user 6','user6@user.com','$2a$08$MTMyOTEwMDQzMDVhMDE4Zeeq/0J6OjQstbHuudh0pZkdBUXbEnmo.','simples',0,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,'','2017-11-07 07:48:45','2017-11-07 07:48:45'),(8,'user_pf_1','user pessoa fisica 1','pf1@pf.com','$2a$08$MTg0MDE2NTIwNTVhMDFhNu/LwLo6w7UgIm4i0reMaGRJFmLb6aHpm','cpf',0,NULL,'Pintor',NULL,'','','12321234543',1,'58093762','Paraiba','João_Pessoa','Torre','r: minha rua','','2017-11-07 09:31:45','2017-11-07 09:40:17'),(9,'user_pf_2','user pessoa fisica 2','pf2@pf.com','$2a$08$MTMyMzU4OTU3OTVhMDFhO.HEQZX9JUGmnO3RC1yLnaBZqV94L04uW','cpf',0,NULL,'Funileiro',NULL,'blablabla.com','','12321222222',1,'58093762','Paraiba','João_Pessoa','Torre','r: minha rua','','2017-11-07 09:35:51','2017-11-07 09:40:17'),(10,'user_pf_3','user pessoa fisica 3','pf3@pf.com','$2a$08$MTgwMDQ1NTg5ODVhMDFhO.lYuq.a3vOJdllab/ktXkza4cZo2LW8y','cpf',0,NULL,'Mecânico',NULL,'','','33333234543',1,'58093762','Paraiba','João_Pessoa','Torre','r: minha rua','','2017-11-07 09:36:48','2017-11-07 09:40:17'),(11,'user_pj_1','user pessoa juridica 1','pj1@pj.com','$2a$08$MTEwODc2NjU4MTVhMDFhOOs3DMlc3kOvAEIofqMJAep2QrAUmGbIW','cnpj',0,'Lojista','Pintor','Basico','','','999999999999999999',1,'58093762','Paraí­ba','João_Pessoa','Torre','r: minha rua','','2017-11-07 09:37:44','2017-11-07 09:40:17'),(12,'user_pj_2','user pessoa juridica 2','pj2@pj.com','$2a$08$Mjc3NDAzNjk5NWEwMWFhM.wZXltI4mlv/bWP6qOv0kqKWR5B5tZoC','cnpj',0,'Mao de Obra','Mecânico','Intermediario','','','674364736473',1,'58093762','ParaÃ­ba','JoÃ£o Pessoa','Torre','r: minha rua','','2017-11-07 09:41:48','2017-11-07 10:33:54');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +71,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-01  1:48:23
+-- Dump completed on 2017-11-08  8:14:54

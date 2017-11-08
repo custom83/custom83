@@ -24,7 +24,7 @@
                     if (Bcrypt::check($pwd, $hash)) {
                         $_SESSION['nome'] = $row['nome'];
                         $_SESSION['email'] = $row['email'];
-                        $_SESSION['type_user'] = $row['type'];
+                        $_SESSION['type_user'] = $row['permissao'];
                         $_SESSION['logado'] = true;
                         return true;
                     } else {

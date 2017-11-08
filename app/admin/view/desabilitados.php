@@ -125,7 +125,7 @@
               <!-- The user image in the navbar-->
               <img src="app/assets/imgs/user9-640x640.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Ítalo Nascimento</span>
+              <span class="hidden-xs"><?=$_SESSION['nome']?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -133,7 +133,8 @@
                 <img src="app/assets/imgs/user9-640x640.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Ítalo Nascimento - Web Developer
+                  <?=$_SESSION['nome']?> - Web Developer
+                  <small><?=$_SESSION['email']?></small>
                   <small>Member since Nov. 2017</small>
                 </p>
               </li>
@@ -158,7 +159,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -183,7 +184,7 @@
           <img src="app/assets/imgs/user9-640x640.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Ítalo Nascimento</p>
+          <p><?=$_SESSION['nome']?></p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -375,19 +376,26 @@
                   <th>Dados</th>
                   <th>Editar</th>
                 </tr>
+                <?php foreach ($user_desable as $key => $value) {?>
                 <tr>
-                  <td>183</td>
-                  <td>Ítalo Nascimento</td>
-                  <td>29-07-17</td>
-                  <td>italonascimento89@gmail.com</td>
+                  <td><?=$value['id']?></td>
+                  <td><?=$value['nome']?></td>
+                  <td><?=$value['data_register']?></td>
+                  <td><?=$value['email']?></td>
                   <td>(83) 98700-2783</td>
                   <td>0</td>
                   <td>0</td>
-                  <td><span class="label label-danger">Não</span></td>
-                  <td><a href="#"><i class="fa fa-unlock" title="Bloquear" alt="Bloquear"></i></a></td>
+                  <td><span <?php if($value['status'] == 1) echo "class='label label-primary'>Sim"; else echo "class='label label-danger'>Não"?></span></td>
+                  <td><a href="#"><i class="fa fa-lock" title="Bloquear" alt="Bloquear"></i></a></td>
                   <td><a href="#"><i class="fa fa-info" title="Visualizar Dados" alt="Visualizar Dados"></i></a></td>
-                  <td><a href="#"><i class="fa fa-edit" title="Editar" alt="Editar"></i></a></td>
+                  <td>
+                    <form method="get" action="dashboard-admin-pessoa-fisica">
+                        <input id="usuario" name="usuario" type="hidden" value="<?=$key ?>">
+                        <input class="button is-primary" type="submit" value="Editar"/>
+                    </form>
+                  </td>
                 </tr>
+              <?php } ?>
               </tbody></table>
             </div>
             <!-- /.box-body -->

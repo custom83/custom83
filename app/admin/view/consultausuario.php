@@ -1,24 +1,5 @@
 <?php include_once 'app/partlals/header.php'; ?>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
+
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
@@ -26,7 +7,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="dashboard-admin" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>C</b>83</span>
       <!-- logo for regular state and mobile devices -->
@@ -145,7 +126,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="app/assets/imgs/user9-640x640.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Ítalo Nascimento</span>
+              <span class="hidden-xs"><?=$_SESSION['nome']?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -153,7 +134,8 @@ desired effect
                 <img src="app/assets/imgs/user9-640x640.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Ítalo Nascimento - Web Developer
+                  <?=$_SESSION['nome']?> - Web Developer
+                  <small><?=$_SESSION['email']?></small>
                   <small>Member since Nov. 2017</small>
                 </p>
               </li>
@@ -178,7 +160,7 @@ desired effect
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -203,7 +185,7 @@ desired effect
           <img src="app/assets/imgs/user9-640x640.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Ítalo Nascimento</p>
+          <p><?=$_SESSION['nome']?></p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -225,7 +207,7 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU NAVEGAÇÃO</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="dashboard.html"><i class="fa fa-home"></i> <span>DashBoard</span></a></li>
+        <li class="active"><a href="dashboard-admin"><i class="fa fa-home"></i> <span>DashBoard</span></a></li>
         <li><a href="#"><i class="fa fa-sliders"></i> <span>Sliders</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-users"></i> <span>Clientes</span>
@@ -234,10 +216,10 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="usersregister.html">Usuários Registrados</a></li>
-            <li><a href="pessoafisica.php">Pessoa Física</a></li>
-            <li><a href="pessoajuridica.html">Pessoa Juridica</a></li>
-            <li><a href="desabilitados.html">Desabilitados</a></li>
+            <li><a href="dashboard-admin-listagem-usuarios">Usuários Registrados</a></li>
+            <li><a href="dashboard-admin-pessoa-fisica">Pessoa Física</a></li>
+            <li><a href="dashboard-admin-pessoa-juridica">Pessoa Juridica</a></li>
+            <li><a href="dashboard-admin-usuarios-desabilitados">Desabilitados</a></li>
           </ul>
         </li>
         <li><a href="#"><i class="fa fa-university"></i> <span>Lojas</span></a></li>
@@ -326,13 +308,15 @@ desired effect
                   <th>Email</th>
                   <th>Desativar</th>
                 </tr>
+                <?php foreach ($user_simple as $key => $value) {?>
                 <tr>
-                  <td>183</td>
-                  <td>Italo Nascimento</td>
-                  <td>28-10-17</td>
-                  <td>italonascimento89@gmail.com</td>
+                  <td><?=$value['id']?></td>
+                  <td><?=$value['nome']?></td>
+                  <td><?=$value['data_register']?></td>
+                  <td><?=$value['email']?></td>
                   <td><a href="#"><i class="fa fa-unlock" title="Bloquear" alt="Bloquear"></i></a></td>
                 </tr>
+              <?php } ?>
               </tbody></table>
             </div>
             <!-- /.box-body -->

@@ -1,60 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <title>Custom83.com - O maior portal automotivo da Paraíba</title>
-    <meta charset="utf-8">
-    <!--<link rel="stylesheet" type="text/css" href="app/assets/css/bulma.css">-->
-    <!--<link rel="stylesheet" type="text/css" href="app/assets/css/estilo.css">-->
-    <!--<link rel="stylesheet" type="text/css" href="app/assets/css/font-awesome.css">-->
-    <!-- <script type="text/javascript" src="app/assets/js/style.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Libs JQuerySteps-->
-    <script type="text/javascript" src="app/assets/js/jquery.steps.js"></script>
-    <script type="text/javascript" src="app/assets/js/jquery.steps.min.js"></script>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="app/libs/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="app/libs/bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="app/libs/bower_components/Ionicons/css/ionicons.min.css">
-    <!-- daterange picker -->
-    <link rel="stylesheet" href="app/libs/bower_components/bootstrap-daterangepicker/daterangepicker.css">
-    <!-- bootstrap datepicker -->
-    <link rel="stylesheet" href="app/libs/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-    <!-- iCheck for checkboxes and radio inputs -->
-    <link rel="stylesheet" href="app/libs/plugins/iCheck/all.css">
-    <!-- Bootstrap Color Picker -->
-    <link rel="stylesheet" href="app/libs/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
-    <!-- Bootstrap time Picker -->
-    <link rel="stylesheet" href="app/libs/plugins/timepicker/bootstrap-timepicker.min.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="app/libs/bower_components/select2/dist/css/select2.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="app/assets/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="app/assets/css/skins/_all-skins.min.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Google Font -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  </head>
+<?php include_once 'app/partlals/header.php'; ?>
   <body class="hold-transition register-page">
   <div class="register-box">
     <div class="register-logo">
-      <a href="#"><img src="app/assets/imgs/logoLow.png"/></a>
+      <a href="register"><img src="app/assets/imgs/logoLow.png"/></a>
     </div>
     <div class="register-box-body"  >
-      <form action="#" method="post">
+      <form action="assinante" method="post">
+        <input type="hidden" name="type" value="pj">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist" id="myTabs">
           <li role="presentation" class="active"><a href="#conta" aria-controls="conta" role="tab" data-toggle="tab" aria-expanded="true">Conta</a></li>
@@ -65,23 +17,28 @@
           <div role="tabpanel" class="tab-pane active" id="conta">
             <div class="form-group">
                 <label for="nameUser">Usuario</label>
-                <input class="form-control" id="nameUser" placeholder="Usuário" type="text" name="nameuser">
+                <input class="form-control" id="nameUser" placeholder="Usuário" type="text" name="usuario" required="">
             </div>
             <div class="form-group">
-                <label for="formName">Nome</label>
-                <input class="form-control" id="formName" placeholder="Nome" type="text" name="nome">
+                <label for="formRazaoSocial">Razão Social</label>
+                <input class="form-control" id="formRazaoSocial" placeholder="Razão Social" type="text" name="nome" required="">
             </div>
             <div class="form-group">
-                <label for="formCpf">CPF</label>
-                <input class="form-control" id="formCpf" placeholder="CPF" type="text" name="cpf">
+                <label for="formCnpj">CNPJ</label>
+                <input class="form-control" id="formCnpj" placeholder="CNPJ" type="text" name="cnpj" required="">
+            </div>
+            <div class="form-group has-feedback">
+              <label for="formName">Email</label>
+              <input type="email" class="form-control" placeholder="Email" id="formName" name="email" required="">
+              <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group">
                 <label for="formPassword">Senha</label>
-                <input class="form-control" id="formPassword" placeholder="Senha" type="password" name="senha">
+                <input class="form-control" id="formPassword" placeholder="Senha" type="password" name="senha" required="">
             </div>
             <div class="form-group">
                 <label for="confirmPassword">Confirmar senha</label>
-                <input class="form-control" id="confirmPassword" placeholder="Confirmar senha" type="password" name="Senha">
+                <input class="form-control" id="confirmPassword" placeholder="Confirmar senha" type="password" name="senhaRepet" required="">
             </div>
             <button type="button" class="btn btn-primary" onclick="tabEnd()">Avançar</button>
           </div>
@@ -92,29 +49,28 @@
             </div>
             <div class="form-group">
                 <label>Estado</label>
-                <select class="form-control" name="estado">
-                    <option value="0">Paraíba</option>
+                <select class="form-control" name="estado" required="">
+                    <option value="Paraíba">Paraíba</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>Cidade</label>
-                <select class="form-control" name="cidade">
-                    <option value="0">Paraíba</option>
-                </select>
+                <select class="form-control" name="cidade" required="">
+                    <option value="João Pessoa">João Pessoa</option> </select>
             </div>
             <div class="form-group">
                 <label>Bairro</label>
                 <select class="form-control" name="bairro">
-                    <option value="0">Torre</option>
+                    <option value="Torre">Torre</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="formEnd">Endereço</label>
-                <input class="form-control" id="formEnd" placeholder="Endereço" type="text" name="endereco">
+                <input class="form-control" id="formEnd" placeholder="Endereço" type="text" name="endereco" required="">
             </div>
             <div class="form-group">
                 <label for="formNumero">Número</label>
-                <input class="form-control" id="formNumero" placeholder="Número" type="text" name="site">
+                <input class="form-control" id="formNumero" placeholder="Número" type="text" name="numero">
             </div>
             <div class="row">
               <button type="button" class="btn btn-default" onclick="tabConta()">Voltar</button>
@@ -123,11 +79,26 @@
           </div>
           <div role="tabpanel" class="tab-pane fade" id="categoria">
             <div class="form-group">
+                <label>Perfil</label>
+                  <select class="form-control" name="perfil" required="">
+                      <option value="Lojista">Lojista</option>
+                      <option value="Mão de Obra">Mão de obra</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label>Categoria</label>
-                  <select class="form-control" name="categoria">
-                  <option value="1">Pintor</option>
-                  <option value="2">Funileiro</option>
-                  <option value="3">Mecanico</option>
+                  <select class="form-control" name="categoria" required="">
+                      <option value="Pintor">Pintor</option>
+                      <option value="Funileiro">Funileiro</option>
+                      <option value="Mecânico">Mecanico</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Plano</label>
+                  <select class="form-control" name="plano" required="">
+                      <option value="Básico">Básico</option>
+                      <option value="Intermediario">Intermediario</option>
+                      <option value="Completo">Completo</option>
                 </select>
             </div>
             <div class="form-group">

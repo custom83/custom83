@@ -373,7 +373,7 @@
                   <th>Dados</th>
                   <th>Editar</th>
                 </tr>
-                <?php foreach ($users as $key => $value) {?>
+                <?php foreach ($user_pj as $key => $value) {?>
                 <tr>
                   <td><?=$value['id']?></td>
                   <td><?=$value['nome']?></td>

@@ -14,44 +14,52 @@ class PagesController {
         return self::$PagesController;
     }
 
+    public function register() {
+        require_once ('app/view/register.php');
+    }
+
+    public function registerPf(){
+        require_once ('app/view/registropessoafisica.php');
+    }
+
+    public function registerPj(){
+        require_once ('app/view/registropessoajuridica.php');
+    }
+
     public function login() {
         require_once ('app/view/autenticacao.php');
         if(isset($_SESSION['erro-email'])) $this->unsetSessionError('erro-email');
     }
 
-    public function register() {
-        require_once ('app/view/register.php');
-    }
-
     public function admin() {
-        $list_user = new DaoListaUser();
-        $list = $list_user->getAllUser();
+        // self::listUser("getAllUserSimple");getAllUserPerfil
+        $assinantes = self::listUser("getAllUser");
+        $perfil_s     = self::listUser("getDadosUser", "SELECT COUNT(*) AS perfil_s FROM usuario WHERE perfil = 'Mao de Obra'");
+        $perfil_l     = self::listUser("getDadosUser", "SELECT COUNT(*) AS perfil_l FROM usuario WHERE perfil = 'Lojista'");
 
         require_once ('app/admin/view/dashboard.php');
     }
 
     public function pessoaFisica() {
-        $list_user = new DaoListaUser();
-        $users = $list_user->getAllUserPf();
+        $user_pf = self::listUser("getAllUserPf");//$list_user->getAllUserPf();
 
         require_once ('app/admin/view/pessoafisica.php');
     }
 
     public function pessoaJuridica() {
-        $list_user = new DaoListaUser();
-        $users = $list_user->getAllUserPj();
+        $user_pj = self::listUser("getAllUserPj");//$list_user->getAllUserPj();
 
-        // if(isset($_GET['usuario'])){
-        //
-        // }
         require_once ('app/admin/view/pessoajuridica.php');
     }
 
-    public function listagemUsuarios() {
-        // require_once ('app/admin/view/listagem-usuarios.php');
+    public function listUserSimple() {
+        $user_simple = self::listUser("getAllUserSimple");
+
+        require_once ('app/admin/view/consultausuario.php');
     }
 
     public function desabilitados() {
+        $user_desable = self::listUser("getAllUserDesabilite");
         require_once ('app/admin/view/desabilitados.php');
     }
 
@@ -65,6 +73,11 @@ class PagesController {
 
         header('Location: /login');
         die;
+    }
+
+    public function listUser($function, $query){
+      $list_user = new DaoListaUser();
+      return $list_user->$function($query);
     }
 
     public function autenticarUser() {
@@ -131,6 +144,8 @@ class PagesController {
             $usuario->setNome($nome);
             $usuario->setEmail($email);
             $usuario->setPassword($pwd);
+            $usuario->setTipoUser("simples");
+            $usuario->setAssinante(0);
 
             $insert = new DaoInsert($usuario);
 
@@ -154,7 +169,102 @@ class PagesController {
         header('Location: /register');
         die;
       }
+    }
 
+    public function assinarUser(){
+      $user    = $_POST['usuario'];
+      $nome       = $_POST['nome'];
+      $email      = $_POST['email'];
+      $senha      = $_POST['senha'];
+      $senhaRepet = $_POST['senhaRepet'];
+      $type       = $_POST['type'];
+
+      //endereco
+      $cep       = $_POST['cep'];
+      $estado    = $_POST['estado'];
+      $cidade    = $_POST['cidade'];
+      $bairro    = $_POST['bairro'];
+      $endereco  = $_POST['endereco'];
+      $numero    = $_POST['numero'];
+
+      //dados e categorias
+      $categoria = $_POST['categoria'];
+      $site      = $_POST['site'];
+      $logomarca = "";//$_POST['logomarca'];
+
+      self::$validate = new DataValidator();
+      $usuario = Usuario::getInstanceUsuario();
+
+      if($type == 'pf') {
+          self::$validate->set('cpf', $_POST['cpf'])->is_required();
+
+          $usuario->setIdentificador($_POST['cpf']);
+          $usuario->setTipoUser("cpf");
+      } else {
+          self::$validate->set('cnpj', $_POST['cnpj'])->is_required();
+          self::$validate->set('perfil', $_POST['perfil'])->is_required();
+          self::$validate->set('plano', $_POST['plano'])->is_required();
+
+          $usuario->setIdentificador($_POST['cnpj']);
+          $usuario->setPerfil($_POST['perfil']);
+          $usuario->setPlano($_POST['plano']);
+          $usuario->setTipoUser("cnpj");
+      }
+
+      self::$validate->set('email', $_POST['email'])->is_required()->is_email();
+      self::$validate->set('senha', $_POST['senha'])->is_required();
+      self::$validate->set('usuario', $_POST['usuario'])->is_required();
+      self::$validate->set('nome', $_POST['nome'])->is_required();
+      self::$validate->set('type', $_POST['type'])->is_required();
+      self::$validate->set('estado', $_POST['estado'])->is_required();
+      self::$validate->set('cidade', $_POST['cidade'])->is_required();
+      self::$validate->set('bairro', $_POST['bairro'])->is_required();
+      self::$validate->set('endereco', $_POST['endereco'])->is_required();
+      self::$validate->set('categoria', $_POST['categoria'])->is_required();
+
+      if (self::$validate->validate()){
+        if($senha == $senhaRepet){
+            if(isset($_SESSION['senha'])) $this->unsetSessionError('senha');
+            $pwd = Bcrypt::hash($senha);
+
+            $usuario->setNome($nome);
+            $usuario->setUsuario($user);
+            $usuario->setEmail($email);
+            $usuario->setPassword($pwd);
+            $usuario->setCategoria($categoria);
+            $usuario->setSite($site);
+            $usuario->setLogoMarca($logomarca);
+
+            $usuario->setEstado($estado);
+            $usuario->setCidade($cidade);
+            $usuario->setBairro($bairro);
+            $usuario->setRua($endereco);
+            $usuario->setCep($cep);
+            $usuario->setNumero($numero);
+            $usuario->setAssinante(1);
+
+            $insert = new DaoInsert($usuario);
+
+            if($insert->insertUser()){
+              if(isset($_SESSION['insert'])) $this->unsetSessionError('insert');
+              header('Location: /pos-register');
+              die;
+            } else {
+              $_SESSION['insert'] = "Erro ao inserir Usuario, email pode já existi!";
+              header('Location: /register');
+              die;
+            }
+        } else {
+          $_SESSION['senha'] = "Senhas diferentes!";
+          header('Location: /register');
+          die;
+        }
+      } else {
+        //ELSE PARA CAMPO INPUT INVALIDO
+        $this->getErro();
+        header('Location: /register');
+        die;
+      }
     }
 
     protected function unsetSessionError($campo) {
@@ -166,6 +276,6 @@ class PagesController {
 
         foreach ($array as $key => $value) { }
 
-        $_SESSION['erro-email'] = $key;
+        $_SESSION['senha'] = $key;
     }
 }

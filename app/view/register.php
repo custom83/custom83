@@ -7,8 +7,8 @@
   </div>
   <div class="register-box-body">
     <div class="box-header with-border">
-      <button type="button" class="btn btn-block btn-danger btn-flat">ASSINE JÁ - PESSOA FÍSICA</button>
-      <button type="button" class="btn btn-block btn-danger btn-flat">ASSINE JÁ - PESSOA JURÍDICA</button>
+      <a href="registropessoafisica"><button type="button" class="btn btn-block btn-danger btn-flat">ASSINE JÁ - PESSOA FÍSICA</button></a><br>
+      <a href="registropessoajuridica"><button type="button" class="btn btn-block btn-danger btn-flat">ASSINE JÁ - PESSOA JURÍDICA</button></a>
     </div>
     <p class="login-box-msg">Registre-se</p>
     <?php if(isset($_SESSION['senha']) || isset($_SESSION['insert'])){?>

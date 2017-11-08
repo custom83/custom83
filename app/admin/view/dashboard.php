@@ -258,8 +258,8 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>0</h3>
-              <p>Total de clientes</p>
+              <h3><?=$assinantes[0]['assinantes']?></h3>
+              <p>Assinantes</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -268,8 +268,8 @@
           </div>
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3><?=$_SESSION['cont-user']?></h3>
-              <p>Usuarios Registrados</p>
+              <h3><?=$assinantes[1]['assinantes']?></h3>
+              <p>Não Assinantes</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -282,7 +282,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>0</h3>
+              <h3><?=$perfil_l[0]['perfil_l']?></h3>
               <p>Lojas</p>
             </div>
             <div class="icon">
@@ -295,7 +295,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>0<sup style="font-size: 20px"></sup></h3>
+              <h3><?=$perfil_s[0]['perfil_s']?><sup style="font-size: 20px"></sup></h3>
               <p>Prestadores de serviços</p>
             </div>
             <div class="icon">
