@@ -17,7 +17,8 @@
         <ul class="nav nav-tabs" role="tablist" id="myTabs">
           <li role="presentation" class="active"><a href="#conta" aria-controls="conta" role="tab" data-toggle="tab" aria-expanded="true">Conta</a></li>
           <li role="presentation"><a href="#endereco" aria-controls="endereco" role="tab" data-toggle="tab" aria-expanded="false">Endereço</a></li>
-          <li role="presentation"><a href="#categoria" aria-controls="categoria" role="tab" data-toggle="tab" aria-expanded="false">Categoria e Dados</a></li>
+          <li role="presentation"><a href="#contatos" aria-controls="contatos" role="tab" data-toggle="tab" aria-expanded="false">Redes e Contatos</a></li>
+          <li role="presentation"><a href="#categoria" aria-controls="categoria" role="tab" data-toggle="tab" aria-expanded="false">Categoria</a></li>
         </ul>
         <div class="tab-content" id="myTabContent">
           <div role="tabpanel" class="tab-pane active" id="conta">
@@ -46,7 +47,7 @@
                 <label for="confirmPassword">Confirmar senha</label>
                 <input class="form-control" id="senhaRepet" placeholder="Confirmar senha" type="password" name="senhaRepet" required="">
             </div>
-            <button type="button" class="btn btn-primary" onclick="tabEnd()">Avançar</button>
+            <button type="button" class="btn btn-primary pull-right" onclick="tabEnd()">Avançar</button>
           </div>
           <div role="tabpanel" class="tab-pane fade" id="endereco">
             <div class="form-group">
@@ -81,6 +82,66 @@
             </div>
             <div class="row">
               <button type="button" class="btn btn-default" onclick="tabConta()">Voltar</button>
+              <button type="button" class="btn btn-primary pull-right" onclick="tabContatos()">Avançar</button>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="contatos">
+            <div class="form-group">
+                <label for="formTelFixo">Telefone Fixo</label>
+                <input class="form-control" id="formTelFixo" placeholder="Informe o contato telefônico" type="text" name="telfixo">
+            </div>
+            <div class="form-group">
+                <label for="formTelCel">Celular</label>
+                <input class="form-control" id="formTelCel" placeholder="Informe o número do seu celular" type="text" name="telcel">
+            </div>
+            <div class="form-group">
+                <label for="formSite">Site</label>
+                <input class="form-control" id="formSite" placeholder="Site" type="text" name="site">
+            </div>
+            <div class="form-group">
+                <label for="formFacebook">Facebook</label>
+                <input class="form-control" id="formFacebook" placeholder="Informe o endereço da sua página" type="text" name="facebook">
+            </div>
+            <div class="form-group">
+                <label for="formInstagram">Instragram</label>
+                <input class="form-control" id="formInstagram" placeholder="Informe o endereço da sua página" type="text" name="instagram">
+            </div>
+            <div class="form-group">
+                <label for="fomrLogo">Logomarca</label>
+                <input id="fomrLogo" type="file" name="logomarca">
+            </div>
+            <div class="row">
+              <button type="button" class="btn btn-default" onclick="tabEnd()">Voltar</button>
+              <button type="button" class="btn btn-primary pull-right" onclick="tabCategory()">Avançar</button>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="contatos">
+            <div class="form-group">
+                <label for="formTelFixo">Telefone Fixo</label>
+                <input class="form-control" id="formTelFixo" placeholder="Informe o contato telefônico" type="text" name="telfixo">
+            </div>
+            <div class="form-group">
+                <label for="formTelCel">Celular</label>
+                <input class="form-control" id="formTelCel" placeholder="Informe o número do seu celular" type="text" name="telcel">
+            </div>
+            <div class="form-group">
+                <label for="formSite">Site</label>
+                <input class="form-control" id="formSite" placeholder="Site" type="text" name="site">
+            </div>
+            <div class="form-group">
+                <label for="formFacebook">Facebook</label>
+                <input class="form-control" id="formFacebook" placeholder="Informe o endereço da sua página" type="text" name="facebook">
+            </div>
+            <div class="form-group">
+                <label for="formInstagram">Instragram</label>
+                <input class="form-control" id="formInstagram" placeholder="Informe o endereço da sua página" type="text" name="instagram">
+            </div>
+            <div class="form-group">
+                <label for="fomrLogo">Logomarca</label>
+                <input id="fomrLogo" type="file" name="logomarca">
+            </div>
+            <div class="row">
+              <button type="button" class="btn btn-default" onclick="tabEnd()">Voltar</button>
               <button type="button" class="btn btn-primary pull-right" onclick="tabCategory()">Avançar</button>
             </div>
           </div>
@@ -94,12 +155,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="formSite">Site</label>
-                <input class="form-control" id="formSite" placeholder="Site" type="text" name="site">
-            </div>
-            <div class="form-group">
-                <label for="fomrLogo">Logomarca</label>
-                <input id="fomrLogo" type="file" name="logomarca">
+                <label>Plano</label>
+                  <select class="form-control" name="plano" required="">
+                  <option value="1">Plano 1</option>
+                  <option value="2">Plano 1</option>
+                  <option value="3">Plano 1</option>
+                </select>
             </div>
             <div class="row">
               <button type="button" class="btn btn-default" onclick="tabEnd()">Voltar</button>
@@ -141,6 +202,9 @@
 
     function tabEnd(){
       $('#myTabs a[href="#endereco"]').tab('show')
+    }
+    function tabContatos(){
+      $('#myTabs a[href="#contatos"]').tab('show')
     }
 
     function tabCategory(){
