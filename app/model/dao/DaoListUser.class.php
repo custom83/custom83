@@ -93,13 +93,26 @@
 
         public function getDadosUser($query) {
           try {
-              // $query = "SELECT COUNT(perfil) AS perfil_m FROM usuario WHERE perfil = 'Mao de Obra'";
-
               $validar = Parent::getInstanceConexao()->prepare($query);
               $validar->execute();
 
               if ($validar->rowCount() >= 1) {
                   return $validar->fetchAll(PDO::FETCH_ASSOC);
+              } else {
+                  return false;
+              }
+          } catch (Exception $ex) {
+              return false;
+          }
+        }
+
+        public function getUser($query) {
+          try {
+              $validar = Parent::getInstanceConexao()->prepare($query);
+              $validar->execute();
+
+              if ($validar->rowCount() === 1) {
+                  return $validar->fetch(PDO::FETCH_ASSOC);
               } else {
                   return false;
               }

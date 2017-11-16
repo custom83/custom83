@@ -7,6 +7,13 @@ if(isset($_SESSION['logado'])){
     $router->get('dashboard-admin-pessoa-juridica','PagesController@pessoaJuridica');
     $router->get('dashboard-admin-usuarios-desabilitados','PagesController@desabilitados');
     $router->get('dashboard-admin-listagem-usuarios','PagesController@listUserSimple');
+
+    $router->get('dashboard-admin-edit-pf','PagesController@editPessoaFisica');
+    $router->get('dashboard-admin-edit-pj','PagesController@editPessoaJuridica');
+    $router->post('update','PagesController@update');
+
+    $router->post('desbloquear','PagesController@desbloqueioUser');
+
     $router->get('logout','PagesController@logoutUser');
 }
 

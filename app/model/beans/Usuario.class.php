@@ -14,7 +14,10 @@ class Usuario extends Endereco {
   private $tipo_user;
   private $assinante;
   private $dataCriacao;
+  private $dataVencimento;
   private $dataAtualizacao;
+  private $facebook;
+  private $instagram;
   private $INSTANCE_USARIO = null;
 
   public function __construct(){ }
@@ -68,4 +71,13 @@ class Usuario extends Endereco {
 
   public function getDataAtualizacao(){ return $this->dataAtualizacao; }
   public function setDataAtualizacao($dataAtualizacao){ $this->dataAtualizacao = $dataAtualizacao; }
+
+  public function getDataVencimento(){ return $this->dataVencimento; }
+  public function setDataVencimento($dataVencimento){ $this->dataVencimento = $dataVencimento; }
+
+  public function getFacebook(){ return $this->facebook; }
+  public function setFacebook($facebook){ $this->facebook = $facebook; }
+
+  public function getInstagram(){ return $this->instagram; }
+  public function setInstagram($instagram){ $this->instagram = $instagram; }
 }

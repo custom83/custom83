@@ -67,7 +67,7 @@
             </div>
             <div class="form-group">
                 <label for="formEnd">Endereço</label>
-                <input class="form-control" id="formEnd" placeholder="Endereço" type="text" name="endereco" required="">
+                <input class="form-control" id="formEnd" placeholder="Endereço" type="text" name="rua" required="">
             </div>
             <div class="form-group">
                 <label for="formNumero">Número</label>
@@ -81,11 +81,11 @@
           <div role="tabpanel" class="tab-pane fade" id="contatos">
             <div class="form-group">
                 <label for="formTelFixo">Telefone Fixo</label>
-                <input class="form-control" id="formTelFixo" placeholder="Informe o contato telefônico" type="text" name="telfixo">
+                <input class="form-control" id="formTelFixo" placeholder="Informe o contato telefônico" type="text" name="telefone">
             </div>
             <div class="form-group">
                 <label for="formTelCel">Celular</label>
-                <input class="form-control" id="formTelCel" placeholder="Informe o número do seu celular" type="text" name="telcel">
+                <input class="form-control" id="formTelCel" placeholder="Informe o número do seu celular" type="text" name="celular">
             </div>
             <div class="form-group">
                 <label for="formSite">Site</label>
@@ -137,13 +137,6 @@
               <input class="btn btn-primary pull-right" type="submit" value="Finalizar">
             </div>
           </div>
-        </div>
-        <div class="row">
-          <!-- /.col -->
-          <!-- <div class="col-xs-4">
-            <input class="btn btn-primary" type="submit" value="Avançar" onclick="teste()">
-          </div> -->
-          <!-- /.col -->
         </div>
       </form>
     </div>

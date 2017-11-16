@@ -74,7 +74,7 @@
             </div>
             <div class="form-group">
                 <label for="formEnd">Endereço</label>
-                <input class="form-control" id="formEnd" placeholder="Endereço" type="text" name="endereco" required="">
+                <input class="form-control" id="formEnd" placeholder="Endereço" type="text" name="rua" required="">
             </div>
             <div class="form-group">
                 <label for="formNumero">Número</label>
@@ -88,41 +88,11 @@
           <div role="tabpanel" class="tab-pane fade" id="contatos">
             <div class="form-group">
                 <label for="formTelFixo">Telefone Fixo</label>
-                <input class="form-control" id="formTelFixo" placeholder="Informe o contato telefônico" type="text" name="telfixo">
+                <input class="form-control" id="formTelFixo" placeholder="Informe o contato telefônico" type="text" name="telefone">
             </div>
             <div class="form-group">
                 <label for="formTelCel">Celular</label>
-                <input class="form-control" id="formTelCel" placeholder="Informe o número do seu celular" type="text" name="telcel">
-            </div>
-            <div class="form-group">
-                <label for="formSite">Site</label>
-                <input class="form-control" id="formSite" placeholder="Site" type="text" name="site">
-            </div>
-            <div class="form-group">
-                <label for="formFacebook">Facebook</label>
-                <input class="form-control" id="formFacebook" placeholder="Informe o endereço da sua página" type="text" name="facebook">
-            </div>
-            <div class="form-group">
-                <label for="formInstagram">Instragram</label>
-                <input class="form-control" id="formInstagram" placeholder="Informe o endereço da sua página" type="text" name="instagram">
-            </div>
-            <div class="form-group">
-                <label for="fomrLogo">Logomarca</label>
-                <input id="fomrLogo" type="file" name="logomarca">
-            </div>
-            <div class="row">
-              <button type="button" class="btn btn-default" onclick="tabEnd()">Voltar</button>
-              <button type="button" class="btn btn-primary pull-right" onclick="tabCategory()">Avançar</button>
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="contatos">
-            <div class="form-group">
-                <label for="formTelFixo">Telefone Fixo</label>
-                <input class="form-control" id="formTelFixo" placeholder="Informe o contato telefônico" type="text" name="telfixo">
-            </div>
-            <div class="form-group">
-                <label for="formTelCel">Celular</label>
-                <input class="form-control" id="formTelCel" placeholder="Informe o número do seu celular" type="text" name="telcel">
+                <input class="form-control" id="formTelCel" placeholder="Informe o número do seu celular" type="text" name="celular">
             </div>
             <div class="form-group">
                 <label for="formSite">Site</label>

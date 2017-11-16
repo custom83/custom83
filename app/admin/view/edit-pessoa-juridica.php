@@ -1,5 +1,4 @@
-<?php include_once 'app/partlals/header.php'; ?>
-<script src="app/assets/js/update-form-session.js" charset="utf-8"></script>
+<?php include_once 'app/partlals/header.php';?>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
@@ -207,10 +206,10 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU NAVEGAÇÃO</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="dashboard-admin"><i class="fa fa-home"></i> <span>DashBoard</span></a></li>
+        <li class="active"><a href="dashboard.html"><i class="fa fa-home"></i> <span>DashBoard</span></a></li>
         <li><a href="#"><i class="fa fa-sliders"></i> <span>Sliders</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-users"></i> <span>Clientes</span>
+          <a href="#"><i class="fa fa-users"></i> <span>Editar</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -242,12 +241,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Clientes
-        <small>Pessoa Juridica</small>
+        Editar
+        <small>Cliente</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Clientes</a></li>
-        <li class="active">Pessoa Juridica</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Editar</a></li>
+        <li class="active">Clientes</li>
+        <li class="active">Pessoa Jurídica</li>
       </ol>
     </section>
 
@@ -257,172 +257,172 @@
           <div class="col-md-12">
               <div class="box box-info">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Consultar Clientes</h3>
+                  <h3 class="box-title">Sobre a Conta</h3>
                 </div>
-                <form action="starter.html" method="post">
+                <form action="update" method="post">
+                  <input id="usuario" name="type" type="hidden" value="pj">
+                  <input id="usuario" name="id" type="hidden" value="<?=$user['id']?>">
                 <div class="box-body">
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label for="formNome">Nome</label>
-                        <input class="form-control" id="formNome" placeholder="Informe o nome" type="email" name="nome" value="">
+                        <label for="formUser">Usuário</label>
+                        <input class="form-control" id="formUser" placeholder="Usuario" type="text" name="usuario" value="<?=$user['usuario']?>">
                       </div>
-                      <div class="form-group">
-                        <label for="formEstado">Estado</label>
-                        <select class="form-control" id="formEstado"name="estado">
-                          <option value="PB">PB</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label>Data de Cadastro</label>
-                        <div class="input-group">
-                          <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                          </div>
-                          <input class="form-control pull-right" id="reservation" type="text" name="data">
-                        </div>
-                        <!-- /.input group -->
-                      </div>
-                      <div class="form-group">
-                        <label for="formCod">Cod</label>
-                        <div class="input-group">
-                          <div class="input-group-addon">
-                            <i class="fa fa-barcode"></i>
-                          </div>
-                          <input class="form-control" data-inputmask="'mask': ['9999']" data-mask="" type="text" id="formCod" name="codigo">
-                        </div>
-                        <!-- /.input group -->
-                      </div>
-                    </div>
-                    <div class="col-md-4">
                       <div class="form-group">
                         <label for="formCnpj">CNPJ</label>
-                        <div class="input-group">
-                          <div class="input-group-addon">
-                            <i class="fa fa-user"></i>
-                          </div>
-                          <input class="form-control" data-inputmask="'mask': ['999.999.999-99']" data-mask="" type="text" id="formCnpj" name="cmpj">
-                        </div>
-                        <!-- /.input group -->
+                        <input class="form-control" id="v" placeholder="Cnpj" name="cnpj" type="text" value="<?=$user['identificador']?>">
                       </div>
                       <div class="form-group">
-                        <label for="formCidade">Cidade</label>
-                        <select class="form-control" id="formCidade" name="cidade">
-                          <option value="1">João Pessoa</option>
-                        </select>
+                        <label for="formSite">Site</label>
+                        <input class="form-control" id="formSite" placeholder="http://meusite.com" name="site" type="text" value="<?=$user['site']?>">
                       </div>
                       <div class="form-group">
-                        <label for="formCategoria">Categoria</label>
-                        <select class="form-control" id="formCategoria" name="categoria">
-                          <option value="1">Loja</option>
-                          <option value="2">Prestador de serviço</option>
-                        </select>
+                        <label for="formFacebook">Facebook</label>
+                        <input class="form-control" id="formFacebook" placeholder="Facebook" name="facebook" type="text" value="<?=$user['facebook']?>">
+                      </div>
+                      <div class="form-group">
+                        <label for="fomrLogo">Logomarca</label>
+                        <input id="fomrLogo" name="logomarca" type="file">
                       </div>
                     </div>
                     <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="formSituacao">Situação</label>
-                      <select class="form-control" id="formSituacao" name="sitaucao">
-                        <option value="1">Ativo</option>
-                        <option value="0">Desabilitado</option>
-                      </select>
+                        <div class="form-group">
+                          <label for="formRazaoSocial">Razão Social</label>
+                          <input class="form-control" id="formRazaoSocial" placeholder="" type="text" name="nome" value="<?=$user['nome']?>">
+                        </div>
+                        <div class="form-group">
+                          <label>Perfil</label>
+                            <select class="form-control" name="perfil" required="">
+                              <<option selected="<?=$user['perfil']?>"><?=$user['perfil']?></option>
+                              <option value="Lojista">Lojista</option>
+                              <option value="Mão de Obra">Mão de obra</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="formTelFixo">Telefone Fixo</label>
+                          <input class="form-control" id="formTelFixo" placeholder="00 00000000" name="telefone" type="text" value="<?=$user['telefone']?>">
+                        </div>
+                        <div class="form-group">
+                          <label for="formInstagram">Instagram</label>
+                          <input class="form-control" id="formInstagram" placeholder="Instagram" name="instagram" type="text" value="<?=$user['instagram']?>">
+                        </div>
                     </div>
-                    <div class="form-group">
-                      <label for="formBairro">Bairro</label>
-                      <select class="form-control" id="formBairro" name="bairro">
-                        <option value="1">Torre</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="formPlano">Plano</label>
-                      <select class="form-control" id="formPlano" name="plano">
-                        <option value="1">Plano 1</option>
-                        <option value="2">Plano 2</option>
-                        <option value="2">Plano 3</option>
-                      </select>
-                    </div>
-
+                    <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="fomrMail">Email</label>
+                          <input class="form-control" id="fomrMail" placeholder="Email" type="email" name="email" value="<?=$user['email']?>">
+                        </div>
+                        <div class="form-group">
+                          <label>Categoria</label>
+                            <select class="form-control" name="categoria" required="">
+                            <<option selected="<?=$user['categoria']?>"><?=$user['categoria']?></option>
+                            <option value="pintor">Pintor</option>
+                            <option value="funileiro">Funileiro</option>
+                            <option value="Mecanico">Mecanico</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="formTelCel">Telefone Celular</label>
+                          <input class="form-control" id="formTelCel" placeholder="00 00000000" name="celular" type="text" value="<?=$user['celular']?>">
+                        </div>
+                        <div class="form-group">
+                          <label for="formSenha">Senha</label>
+                          <input class="form-control" id="formSenha" placeholder="" name="senha" type="password">
+                        </div>
                     </div>
                   </div>
                 </div>
                 <div class="box-footer">
-                  <button type="submit" class="btn btn-primary">Pesquisar</button>
+                  <!-- <button type="submit" class="btn btn-primary">Pesquisar</button> -->
                 </div>
-              </form>
-        </div>
-      <!--Tabela-->
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Lista de clientes</h3>
-              <div class="box-tools">
-              </div>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-                <tbody>
-                <tr>
-                  <th>ID</th>
-                  <th>Nome</th>
-                  <th>Data</th>
-                  <th>Email</th>
-                  <th>Telefone</th>
-                  <th>Produtos</th>
-                  <th>Visitas</th>
-                  <th>Ativo</th>
-                  <th>Inativar</th>
-                  <th>Dados</th>
-                  <th>Editar</th>
-                </tr>
-                <?php foreach ($user_pj as $key => $value) {?>
-                <tr>
-                  <td><?=$value['id']?></td>
-                  <td><?=$value['nome']?></td>
-                  <td><?=$value['data_register']?></td>
-                  <td><?=$value['email']?></td>
-                  <td>(83) 98700-2783</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td><span <?php if($value['status'] == 1) echo "class='label label-primary'>Sim"; else echo "class='label label-danger'>Não"?></span></td>
-                  <td>
-                    <form>
-                      <input id="<?=$value['id']?>" name="id" type="hidden" value="<?=$value['id']?>">
-                      <input id="<?=$value['status']?>" name="status" type="hidden" value="<?=$value['status']?>">
-                      <a><i class="fa fa-lock" title="Bloquear" alt="Bloquear" onclick='updateStatus(<?=$value['id']?>,<?=$value['status']?>)';></i></a>
-                    </form>
-                  </td>
-                  <td><a href="#"><i class="fa fa-info" title="Visualizar Dados" alt="Visualizar Dados"></i></a></td>
-                  <td>
-                    <form method="get" action="dashboard-admin-edit-pj">
-                        <input id="usuario" name="usuario" type="hidden" value="<?=$value['id']?>">
-                        <input class="button is-primary" type="submit" value="Editar"/>
-                    </form>
-                  </td>
-                </tr>
-              <?php } ?>
-              </tbody></table>
+            <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Endereço</h3>
+                </div>
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <div class="form-group">
+                          <label for="formCep">Cep</label>
+                          <input class="form-control" id="formCep" placeholder="Cep" name="cep" type="text" value="<?=$user['cep']?>">
+                      </div>
+                      <div class="form-group">
+                          <label for="formNumero">Número</label>
+                          <input class="form-control" id="formNumero" placeholder="Numero" name="numero" type="text" value="<?=$user['numero']?>">
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label>Estado</label>
+                        <select class="form-control" name="estado" required="">
+                            <option selected="<?=$user['estado']?>"><?=$user['estado']?></option>
+                            <option value="Paraiba">Paraíba</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="formEnd">Endereço</label>
+                          <input class="form-control" id="formEnd" placeholder="" name="rua" required="Rua" type="text" value="<?=$user['rua']?>">
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label>Cidade</label>
+                        <select class="form-control" name="cidade" required="">
+                            <option selected="<?=$user['cidade']?>"><?=$user['cidade']?></option>
+                            <option value="João_Pessoa">João Pessoa</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                          <label>Bairro</label>
+                          <select class="form-control" name="bairro" required="">
+                              <option selected="<?=$user['bairro']?>"><?=$user['bairro']?></option>
+                              <option value="Torre">Torre</option>
+                          </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-footer">
+                  <!-- <button type="submit" class="btn btn-primary">Pesquisar</button> -->
+                </div>
             </div>
-            <!-- /.box-body -->
-            <!--Box-Footer-->
-            <div class="box-footer clearfix">
-              <div class="col-sm-5">
-                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Monstrando 1 a 15 de 50 Registros</div>
-              </div>
-              <div class="col-sm-7">
-                <ul class="pagination pagination-sm no-margin pull-right">
-                  <li><a href="#">«</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">»</a></li>
-                </ul>
+            <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Informações financeiras</h3>
+                </div>
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <div class="form-group">
+                          <label>Data de Vencimento</label>
+                            <select class="form-control" name="data_vencimento" required="">
+                            <option value="5">05</option>
+                            <option value="20">20</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                          <label>Plano</label>
+                            <select class="form-control" name="plano" required="">
+                            <option selected="<?=$user['plano']?>"><?=$user['plano']?></option>
+                            <option value="Plano 1">Plano 1</option>
+                            <option value="Plano 2">Plano 2</option>
+                          </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-footer">
+                  <button type="button" class="btn btn-secondary">Cancelar</button>
+                  <input class="btn btn-primary pull-right" type="submit" value="Salvar e atualizar">
+                </div>
             </div>
-            </div>
+            </form>
           </div>
-          <!-- /.box -->
-          <!--Tabela-->
-      </div>
-    </div>
+        </div>
     </section>
     <!-- /.content -->
   </div>
@@ -541,7 +541,7 @@
 <!-- AdminLTE App -->
 <script src="app/assets/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<!--<script src="dist/js/demo.js"></script>-->
+<!-- <script src="app/assets/js/demo.js"></script> -->
 <!-- Page script -->
 <script>
   $(function () {
@@ -573,5 +573,11 @@
     })
   })
 </script>
+<?php
+    if(!empty($_SESSION['msg'])) {
+          echo "<script>alert('Usuario atualizado!')</script>";
+          unset($_SESSION['msg']);
+    }
+?>
 </body>
 </html>

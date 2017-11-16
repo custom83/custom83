@@ -1,4 +1,5 @@
 <?php include_once 'app/partlals/header.php'; ?>
+<script src="app/assets/js/update-form-session.js" charset="utf-8"></script>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
@@ -263,7 +264,7 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label for="formNome">Nome</label>
-                        <input class="form-control" id="formNome" placeholder="Informe o nome" type="email" name="nome" value="<?=$users[$_GET['usuario']]['nome']?>">
+                        <input class="form-control" id="formNome" placeholder="Informe o nome" type="text" name="nome" value="">
                       </div>
                       <div class="form-group">
                         <label for="formEstado">Estado</label>
@@ -364,11 +365,17 @@
                   <td>(83) 98700-2783</td>
                   <td>0</td>
                   <td><span <?php if($value['status'] == 1) echo "class='label label-primary'>Sim"; else echo "class='label label-danger'>Não"?></span></td>
-                  <td><a href="#"><i class="fa fa-lock" title="Bloquear" alt="Bloquear"></i></a></td>
+                  <td>
+                    <form>
+                        <input id="<?=$value['id']?>" name="id" type="hidden" value="<?=$value['id']?>">
+                        <input id="<?=$value['status']?>" name="status" type="hidden" value="<?=$value['status']?>">
+                        <a><i class="fa fa-lock" title="Bloquear" alt="Bloquear" onclick='updateStatus(<?=$value['id']?>,<?=$value['status']?>)';></i></a>
+                    </form>
+                  </td>
                   <td><a href="#"><i class="fa fa-info" title="Visualizar Dados" alt="Visualizar Dados"></i></a></td>
                   <td>
-                    <form method="get" action="dashboard-admin-pessoa-fisica">
-                        <input id="usuario" name="usuario" type="hidden" value="<?=$key ?>">
+                    <form method="get" action="dashboard-admin-edit-pf">
+                        <input id="usuario" name="usuario" type="hidden" value="<?=$value['id']?>">
                         <input class="button is-primary" type="submit" value="Editar"/>
                     </form>
                   </td>
