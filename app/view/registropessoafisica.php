@@ -128,8 +128,15 @@
                 <label>Plano</label>
                   <select class="form-control" name="plano" required="">
                   <option value="1">Plano 1</option>
-                  <option value="2">Plano 1</option>
-                  <option value="3">Plano 1</option>
+                  <option value="2">Plano 2</option>
+                  <option value="3">Plano 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Data de Vencimento</label>
+                  <select class="form-control" name="data_vencimento" required="">
+                  <option value="5">Dia 05</option>
+                  <option value="20">Dia 20</option>
                 </select>
             </div>
             <div class="row">

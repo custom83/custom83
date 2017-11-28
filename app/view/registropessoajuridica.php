@@ -138,6 +138,13 @@
                       <option value="Completo">Completo</option>
                 </select>
             </div>
+            <div class="form-group">
+                <label>Data de Vencimento</label>
+                  <select class="form-control" name="data_vencimento" required="">
+                  <option value="5">Dia 05</option>
+                  <option value="20">Dia 20</option>
+                </select>
+            </div>
             <div class="row">
               <button type="button" class="btn btn-default" onclick="tabEnd()">Voltar</button>
               <input class="btn btn-primary pull-right" type="submit" value="Finalizar">
