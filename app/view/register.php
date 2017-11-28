@@ -11,9 +11,9 @@
       <a href="registropessoajuridica"><button type="button" class="btn btn-block btn-danger btn-flat">ASSINE JÁ - PESSOA JURÍDICA</button></a>
     </div>
     <p class="login-box-msg">Registre-se</p>
-    <?php if(isset($_SESSION['senha']) || isset($_SESSION['insert'])){?>
+    <?php if(isset($_SESSION['senha-user-s']) || isset($_SESSION['insert-user-s'])){?>
             <div class="alert alert-danger alert-dismissible">
-              <h4><i class="icon fa fa-ban"></i>Alerta!</h4><?php if(isset($_SESSION['senha'])) echo $_SESSION['senha']; else echo $_SESSION['insert']; ?>
+              <h4><i class="icon fa fa-ban"></i>Alerta!</h4><?php if(isset($_SESSION['senha-user-s'])) echo $_SESSION['senha-user-s']; else echo $_SESSION['insert-user-s']; ?>
             </div>
     <?php } ?>
     <form action="register-user" method="post">

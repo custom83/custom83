@@ -268,7 +268,7 @@
           </div>
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3><?=$assinantes[1]['assinantes']?></h3>
+              <h3><?=$nao_assinantes[0]['nao_assinantes']?></h3>
               <p>Não Assinantes</p>
             </div>
             <div class="icon">

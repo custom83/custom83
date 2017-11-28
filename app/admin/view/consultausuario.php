@@ -306,7 +306,6 @@
                   <th>Nome</th>
                   <th>Data</th>
                   <th>Email</th>
-                  <th>Desativar</th>
                 </tr>
                 <?php foreach ($user_simple as $key => $value) {?>
                 <tr>
@@ -314,7 +313,6 @@
                   <td><?=$value['nome']?></td>
                   <td><?=$value['data_register']?></td>
                   <td><?=$value['email']?></td>
-                  <td><a href="#"><i class="fa fa-unlock" title="Bloquear" alt="Bloquear"></i></a></td>
                 </tr>
               <?php } ?>
               </tbody></table>

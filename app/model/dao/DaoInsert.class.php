@@ -104,9 +104,9 @@
               $validar->bindValue(":id",$id);
 
               if($validar->execute()){
-                return "Sucesso";
+                return "Usuario Atualizado Com sucesso";
               } else {
-                return "Erro";
+                return "Erro ao Atualizar Usuario";
               }
           } catch (Exception $ex) {
               return $ex->getMessage();

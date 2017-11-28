@@ -5,6 +5,12 @@
       <a href="register"><img src="app/assets/imgs/logoLow.png"/></a>
     </div>
     <div class="register-box-body"  >
+      <?php if(isset($_SESSION['senha']) || isset($_SESSION['insert'])){?>
+              <div class="alert alert-danger alert-dismissible">
+                <h4><i class="icon fa fa-ban"></i>Alerta!</h4><?php if(isset($_SESSION['senha'])) echo $_SESSION['senha']; else echo $_SESSION['insert']; ?>
+              </div>
+      <?php unset($_SESSION['senha']); unset($_SESSION['insert']);
+          } ?>
       <form action="assinante" method="post">
         <input type="hidden" name="type" value="pj">
         <!-- Nav tabs -->

@@ -33,7 +33,8 @@ class PagesController {
 
     public function admin() {
         // self::listUser("getAllUserSimple");getAllUserPerfil
-        $assinantes = self::listUser("getAllUser", "");
+        $assinantes = self::listUser("getAllUser", "SELECT COUNT(*) AS assinantes FROM usuario WHERE assinante = 1");
+        $nao_assinantes = self::listUser("getAllUser", "SELECT COUNT(*) AS nao_assinantes FROM usuario WHERE assinante = 0");
         $perfil_s     = self::listUser("getDadosUser", "SELECT COUNT(*) AS perfil_s FROM usuario WHERE perfil = 'Mao de Obra'");
         $perfil_l     = self::listUser("getDadosUser", "SELECT COUNT(*) AS perfil_l FROM usuario WHERE perfil = 'Lojista'");
 
@@ -41,13 +42,15 @@ class PagesController {
     }
 
     public function pessoaFisica() {
-        $user_pf = self::listUser("getAllUserPf","");//$list_user->getAllUserPf();
-        require_once ('app/admin/view/pessoafisica.php');
+      $user_pf = self::listUser("getAllUser","SELECT id, nome, email, data_register, status FROM usuario WHERE permissao = 'cpf' AND status = 1");//$list_user->getAllUserPf();
+
+        require ('app/admin/view/pessoafisica.php');
     }
 
     public function pessoaJuridica() {
-        $user_pj = self::listUser("getAllUserPj", "");//$list_user->getAllUserPj();
-        require_once ('app/admin/view/pessoajuridica.php');
+        $user_pj = self::listUser("getAllUser", "SELECT id, nome, email, data_register, status FROM usuario WHERE permissao = 'cnpj' AND status = 1");//$list_user->getAllUserPj();
+
+        require ('app/admin/view/pessoajuridica.php');
     }
 
     public function listUserSimple() {
@@ -56,8 +59,8 @@ class PagesController {
     }
 
     public function desabilitados() {
-        $user_desable = self::listUser("getAllUserDesabilite","");
-        require_once ('app/admin/view/desabilitados.php');
+        $user_desable = self::listUser("getAllUser","SELECT id, nome, email, data_register, status FROM usuario WHERE status = 0 AND assinante = 1");
+        require ('app/admin/view/desabilitados.php');
     }
 
     public function editPessoaFisica($id = null) {
@@ -156,19 +159,20 @@ class PagesController {
             $usuario->setTipoUser("simples");
             $usuario->setAssinante(0);
 
-            $insert = new DaoInsert($usuario);
+            $insert = new DaoInsert($usuario, Telefone::getInstanceTelefone());
 
             if($insert->insertUser()){
-              if(isset($_SESSION['insert'])) $this->unsetSessionError('insert');
+              if(isset($_SESSION['insert-user-s'])) $this->unsetSessionError('insert-user-s');
+              if(isset($_SESSION['senha-user-s'])) $this->unsetSessionError('senha-user-s');
               header('Location: /pos-register');
               die;
             } else {
-              $_SESSION['insert'] = "Erro ao inserir Usuario, email pode já existi!";
+              $_SESSION['insert-user-s'] = "Erro ao inserir Usuario, email pode já existi!";
               header('Location: /register');
               die;
             }
         } else {
-          $_SESSION['senha'] = "Senhas diferentes!";
+          $_SESSION['senha-user-s'] = "Senhas diferentes!";
           header('Location: /register');
           die;
         }
@@ -212,7 +216,9 @@ class PagesController {
           self::$validate->set('cpf', $_POST['cpf'])->is_required();
 
           $usuario->setIdentificador($_POST['cpf']);
-          $usuario->setTipoUser("cpf");
+          $usuario->setTipoUser("cpf")
+          ;
+          $local = "registropessoafisica";
       } else {
           self::$validate->set('cnpj', $_POST['cnpj'])->is_required();
           self::$validate->set('perfil', $_POST['perfil'])->is_required();
@@ -222,6 +228,8 @@ class PagesController {
           $usuario->setPerfil($_POST['perfil']);
           $usuario->setPlano($_POST['plano']);
           $usuario->setTipoUser("cnpj");
+
+          $local = "registropessoajuridica";
       }
 
       self::$validate->set('email', $_POST['email'])->is_required()->is_email();
@@ -266,16 +274,17 @@ class PagesController {
 
             if($insert->insertUser()){
               if(isset($_SESSION['insert'])) $this->unsetSessionError('insert');
+              if(isset($_SESSION['senha'])) $this->unsetSessionError('senha');
               header('Location: /pos-register');
               die;
             } else {
               $_SESSION['insert'] = "Erro ao inserir Usuario, email pode já existi!";
-              header('Location: /register');
+              header("Location: /{$local}");
               die;
             }
         } else {
           $_SESSION['senha'] = "Senhas diferentes!";
-          header('Location: /register');
+          header("Location: /{$local}");
           die;
         }
       } else {

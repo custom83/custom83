@@ -69,6 +69,6 @@ function updateStatus(_id, _status) {
   $.ajax({
     type: "POST",url: "desbloquear",
     data: { id: _id, status: _status },
-    success: function(data) { alert(data); }
+    success: function(data) { alert(data); location.reload(); }
   });
 }

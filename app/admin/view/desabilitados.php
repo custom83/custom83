@@ -372,7 +372,6 @@
                   <th>Telefone</th>
                   <th>Produtos</th>
                   <th>Visitas</th>
-                  <th>Ativo</th>
                   <th>Ativar</th>
                   <th>Dados</th>
                   <th>Editar</th>
@@ -386,7 +385,6 @@
                   <td>(83) 98700-2783</td>
                   <td>0</td>
                   <td>0</td>
-                  <td><span <?php if($value['status'] == 1) echo "class='label label-primary'>Sim"; else echo "class='label label-danger'>Não"?></span></td>
                   <td>
                     <form>
                       <input id="<?=$value['id']?>" name="id" type="hidden" value="<?=$value['id']?>">
