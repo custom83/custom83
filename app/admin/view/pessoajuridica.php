@@ -1,72 +1,5 @@
-<!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Custom83.com - O maior portal automotivo da Paraíba</title>
-  <meta charset="utf-8">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
-  <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="plugins/iCheck/all.css">
-  <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
-  <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="plugins/timepicker/bootstrap-timepicker.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="app/assets/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="app/assets/css/skins/_all-skins.min.css">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
+<?php include_once 'app/partlals/header.php';?>
+<script src="app/assets/js/update-form-session.js" charset="utf-8"></script>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
@@ -74,7 +7,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="dashboard-admin" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>C</b>83</span>
       <!-- logo for regular state and mobile devices -->
@@ -193,7 +126,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="app/assets/imgs/user9-640x640.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Ítalo Nascimento</span>
+              <span class="hidden-xs"><?=$_SESSION['nome']?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -201,7 +134,8 @@ desired effect
                 <img src="app/assets/imgs/user9-640x640.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Ítalo Nascimento - Web Developer
+                  <?=$_SESSION['nome']?> - Web Developer
+                  <small><?=$_SESSION['email']?></small>
                   <small>Member since Nov. 2017</small>
                 </p>
               </li>
@@ -226,7 +160,7 @@ desired effect
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -251,7 +185,7 @@ desired effect
           <img src="app/assets/imgs/user9-640x640.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Ítalo Nascimento</p>
+          <p><?=$_SESSION['nome']?></p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -273,7 +207,7 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU NAVEGAÇÃO</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="dashboard.html"><i class="fa fa-home"></i> <span>DashBoard</span></a></li>
+        <li class="active"><a href="dashboard-admin"><i class="fa fa-home"></i> <span>DashBoard</span></a></li>
         <li><a href="#"><i class="fa fa-sliders"></i> <span>Sliders</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-users"></i> <span>Clientes</span>
@@ -282,10 +216,10 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="usersregister.html">Usuários Registrados</a></li>
-            <li><a href="pessoafisica.html">Pessoa Física</a></li>
-            <li><a href="pessoajuridica.html">Pessoa Juridica</a></li>
-            <li><a href="desabilitados.html">Desabilitados</a></li>
+            <li><a href="dashboard-admin-listagem-usuarios">Usuários Registrados</a></li>
+            <li><a href="dashboard-admin-pessoa-fisica">Pessoa Física</a></li>
+            <li><a href="dashboard-admin-pessoa-juridica">Pessoa Juridica</a></li>
+            <li><a href="dashboard-admin-usuarios-desabilitados">Desabilitados</a></li>
           </ul>
         </li>
         <li><a href="#"><i class="fa fa-university"></i> <span>Lojas</span></a></li>
@@ -309,13 +243,14 @@ desired effect
     <section class="content-header">
       <h1>
         Clientes
-        <small>Pessoa Fisica</small>
+        <small>Pessoa Juridica</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Clientes</a></li>
-        <li class="active">Pessoa Física</li>
+        <li class="active">Pessoa Juridica</li>
       </ol>
     </section>
+
     <!-- Main content -->
     <section class="content container-fluid">
       <div class="row">
@@ -330,11 +265,11 @@ desired effect
                     <div class="col-md-4">
                       <div class="form-group">
                         <label for="formNome">Nome</label>
-                        <input class="form-control" id="formNome" placeholder="Informe o nome" type="email" name="nome">
+                        <input class="form-control" id="formNome" placeholder="Informe o nome" type="email" name="nome" value="">
                       </div>
                       <div class="form-group">
                         <label for="formEstado">Estado</label>
-                        <select class="form-control" id="formEstado" name="estado">
+                        <select class="form-control" id="formEstado"name="estado">
                           <option value="PB">PB</option>
                         </select>
                       </div>
@@ -348,15 +283,25 @@ desired effect
                         </div>
                         <!-- /.input group -->
                       </div>
+                      <div class="form-group">
+                        <label for="formCod">Cod</label>
+                        <div class="input-group">
+                          <div class="input-group-addon">
+                            <i class="fa fa-barcode"></i>
+                          </div>
+                          <input class="form-control" data-inputmask="'mask': ['9999']" data-mask="" type="text" id="formCod" name="codigo">
+                        </div>
+                        <!-- /.input group -->
+                      </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label for="formCpf">Cpf</label>
+                        <label for="formCnpj">CNPJ</label>
                         <div class="input-group">
                           <div class="input-group-addon">
                             <i class="fa fa-user"></i>
                           </div>
-                          <input class="form-control" data-inputmask="'mask': ['999.999.999-99']" data-mask="" type="text" id="formCpf" name="cpf">
+                          <input class="form-control" data-inputmask="'mask': ['999.999.999-99']" data-mask="" type="text" id="formCnpj" name="cmpj">
                         </div>
                         <!-- /.input group -->
                       </div>
@@ -367,14 +312,11 @@ desired effect
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="formCod">Cod</label>
-                        <div class="input-group">
-                          <div class="input-group-addon">
-                            <i class="fa fa-barcode"></i>
-                          </div>
-                          <input class="form-control" data-inputmask="'mask': ['9999']" data-mask="" type="text" id="formCod" name="codigo">
-                        </div>
-                        <!-- /.input group -->
+                        <label for="formCategoria">Categoria</label>
+                        <select class="form-control" id="formCategoria" name="categoria">
+                          <option value="1">Loja</option>
+                          <option value="2">Prestador de serviço</option>
+                        </select>
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -391,6 +333,15 @@ desired effect
                         <option value="1">Torre</option>
                       </select>
                     </div>
+                    <div class="form-group">
+                      <label for="formPlano">Plano</label>
+                      <select class="form-control" id="formPlano" name="plano">
+                        <option value="1">Plano 1</option>
+                        <option value="2">Plano 2</option>
+                        <option value="2">Plano 3</option>
+                      </select>
+                    </div>
+
                     </div>
                   </div>
                 </div>
@@ -416,24 +367,37 @@ desired effect
                   <th>Data</th>
                   <th>Email</th>
                   <th>Telefone</th>
+                  <th>Produtos</th>
                   <th>Visitas</th>
-                  <th>Ativo</th>
-                  <th>Inativar</th>
+                  <th>Desativar</th>
                   <th>Dados</th>
                   <th>Editar</th>
                 </tr>
+                <?php foreach ($user_pj as $key => $value) {?>
                 <tr>
-                  <td>183</td>
-                  <td>Ítalo Nascimento</td>
-                  <td>29-07-17</td>
-                  <td>italonascimento89@gmail.com</td>
+                  <td><?=$value['id']?></td>
+                  <td><?=$value['nome']?></td>
+                  <td><?=$value['data_register']?></td>
+                  <td><?=$value['email']?></td>
                   <td>(83) 98700-2783</td>
                   <td>0</td>
-                  <td><span class="label label-primary">Sim</span></td>
-                  <td><a href="#"><i class="fa fa-lock" title="Bloquear" alt="Bloquear"></i></a></td>
+                  <td>0</td>
+                  <td>
+                    <form>
+                        <input id="<?=$value['id']?>" name="id" type="hidden" value="<?=$value['id']?>">
+                        <input id="<?=$value['status']?>" name="status" type="hidden" value="<?=$value['status']?>">
+                        <a><i class="fa fa-unlock" title="Bloquear" alt="Bloquear" onclick='updateStatus(<?=$value['id']?>,<?=$value['status']?>)';></i></a>
+                    </form>
+                  </td>
                   <td><a href="#"><i class="fa fa-info" title="Visualizar Dados" alt="Visualizar Dados"></i></a></td>
-                  <td><a href="#"><i class="fa fa-edit" title="Editar" alt="Editar"></i></a></td>
+                  <td>
+                    <form method="get" action="dashboard-admin-edit-pj">
+                        <input id="usuario" name="usuario" type="hidden" value="<?=$value['id']?>">
+                        <input class="button is-primary" type="submit" value="Editar"/>
+                    </form>
+                  </td>
                 </tr>
+              <?php } ?>
               </tbody></table>
             </div>
             <!-- /.box-body -->
@@ -548,30 +512,30 @@ desired effect
 </div>
 <!-- ./wrapper -->
 <!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="app/libs/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="app/libs/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Select2 -->
-<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
+<script src="app/libs/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- InputMask -->
-<script src="plugins/input-mask/jquery.inputmask.js"></script>
-<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<script src="app/libs/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="app/libs/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="app/libs/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 <!-- date-range-picker -->
-<script src="bower_components/moment/min/moment.min.js"></script>
-<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="app/libs/bower_components/moment/min/moment.min.js"></script>
+<script src="app/libs/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- bootstrap datepicker -->
-<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="app/libs/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- bootstrap color picker -->
-<script src="bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+<script src="app/libs/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
 <!-- bootstrap time picker -->
-<script src="plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="app/libs/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- SlimScroll -->
-<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="app/libs/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- iCheck 1.0.1 -->
-<script src="plugins/iCheck/icheck.min.js"></script>
+<script src="app/libs/plugins/iCheck/icheck.min.js"></script>
 <!-- FastClick -->
-<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<script src="app/libs/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="app/assets/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->

@@ -2,7 +2,7 @@ function modifiStatus(id, _status){
     var params = "id="+id+"&status="+_status;
     var xhttp = new XMLHttpRequest();
 
-    xhttp.open("POST", "admin-status", true);
+    xhttp.open("POST", "desbloquear", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.setRequestHeader("Content-length", params.length);
     xhttp.setRequestHeader("Connection", "close");
@@ -10,8 +10,9 @@ function modifiStatus(id, _status){
     		if (xhttp.readyState == 4)
     			if (xhttp.status == 200){
     				result.innerHTML = xhttp.responseText;
+            alert("Atualizado com sucesso");
     			} else {
-
+            alert("erro");
     				result.innerHTML = "Um erro ocorreu: " + xhttp.statusText;
     			}
     	};

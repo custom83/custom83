@@ -1,24 +1,4 @@
-<?php include_once 'app/view/partlals/header.php'; ?>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
+<?php include_once 'app/partlals/header.php';?>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
@@ -145,7 +125,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="app/assets/imgs/user9-640x640.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Ítalo Nascimento</span>
+              <span class="hidden-xs"><?=$_SESSION['nome']?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -153,7 +133,8 @@ desired effect
                 <img src="app/assets/imgs/user9-640x640.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Ítalo Nascimento - Web Developer
+                  <?=$_SESSION['nome']?> - Web Developer
+                  <small><?=$_SESSION['email']?></small>
                   <small>Member since Nov. 2017</small>
                 </p>
               </li>
@@ -178,7 +159,7 @@ desired effect
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -203,7 +184,7 @@ desired effect
           <img src="app/assets/imgs/user9-640x640.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Ítalo Nascimento</p>
+          <p><?=$_SESSION['nome']?></p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -228,16 +209,16 @@ desired effect
         <li class="active"><a href="dashboard.html"><i class="fa fa-home"></i> <span>DashBoard</span></a></li>
         <li><a href="#"><i class="fa fa-sliders"></i> <span>Sliders</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-users"></i> <span>Clientes</span>
+          <a href="#"><i class="fa fa-users"></i> <span>Editar</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="usersregister.html">Usuários Registrados</a></li>
-            <li><a href="pessoafisica.php">Pessoa Física</a></li>
-            <li><a href="pessoajuridica.html">Pessoa Juridica</a></li>
-            <li><a href="desabilitados.html">Desabilitados</a></li>
+            <li><a href="dashboard-admin-listagem-usuarios">Usuários Registrados</a></li>
+            <li><a href="dashboard-admin-pessoa-fisica">Pessoa Física</a></li>
+            <li><a href="dashboard-admin-pessoa-juridica">Pessoa Juridica</a></li>
+            <li><a href="dashboard-admin-usuarios-desabilitados">Desabilitados</a></li>
           </ul>
         </li>
         <li><a href="#"><i class="fa fa-university"></i> <span>Lojas</span></a></li>
@@ -260,12 +241,13 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Registros
-        <small>Usuários</small>
+        Editar
+        <small>Cliente</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Clientes</a></li>
-        <li class="active">Usuários Registrados</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Editar</a></li>
+        <li class="active">Clientes</li>
+        <li class="active">Pessoa Física</li>
       </ol>
     </section>
 
@@ -275,87 +257,165 @@ desired effect
           <div class="col-md-12">
               <div class="box box-info">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Consultar Registros</h3>
+                  <h3 class="box-title">Sobre a Conta</h3>
                 </div>
-                <form action="#" method="post">
+                <form action="update" method="post">
+                  <input id="usuario" name="type" type="hidden" value="pf">
+                  <input id="usuario" name="id" type="hidden" value="<?=$user['id']?>">
                 <div class="box-body">
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                       <div class="form-group">
-                        <label for="formNome">Nome</label>
-                        <input class="form-control" id="formNome" placeholder="Informe o nome" type="email" name="nome">
+                        <label for="formUser">Usuário</label>
+                        <input class="form-control" id="formUser" placeholder="Nome" type="text" name="usuario" value="<?=$user['usuario']?>">
                       </div>
                       <div class="form-group">
-                        <label>Data de cadastro</label>
-                        <div class="input-group">
-                          <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                          </div>
-                          <input class="form-control pull-right" id="reservation" type="text" name="data">
-                        </div>
-                        <!-- /.input group -->
+                        <label for="formCpf">CPF</label>
+                        <input class="form-control" id="formCpf" placeholder="cpf" name="cpf" type="text" value="<?=$user['identificador']?>">
+                      </div>
+                      <div class="form-group">
+                        <label for="formTelCel">Telefone Celular</label>
+                        <input class="form-control" id="formTelCel" placeholder="00 00000000" name="celular" type="text" value="<?=$user['celular']?>">
+                      </div>
+                      <div class="form-group">
+                        <label for="formInstagram">Instagram</label>
+                        <input class="form-control" id="formInstagram" placeholder="Instagram" name="instagram" type="text" value="<?=$user['instagram']?>">
                       </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
-                          <label for="formMail">Email</label>
-                          <input class="form-control" id="formMail" placeholder="Informe o e-mail" type="email" name="email">
+                          <label for="formNome">Nome</label>
+                          <input class="form-control" id="formNome" placeholder="Nome" type="text" name="nome" value="<?=$user['nome']?>">
+                        </div>
+                        <div class="form-group">
+                          <label>Categoria</label>
+                            <select class="form-control" name="categoria" required="">
+                            <<option selected="<?=$user['categoria']?>"><?=$user['categoria']?></option>
+                            <option value="pintor">Pintor</option>
+                            <option value="funileiro">Funileiro</option>
+                            <option value="Mecanico">Mecanico</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="formSite">Site</label>
+                          <input class="form-control" id="formSite" placeholder="" name="site" type="text" value="<?=$user['site']?>">
+                        </div>
+                        <div class="form-group">
+                          <label for="formSenha">Senha</label>
+                          <input class="form-control" id="formSenha" placeholder="" name="senha" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="fomrMail">Email</label>
+                          <input class="form-control" id="fomrMail" placeholder="" type="email" name="email" value="<?=$user['email']?>">
+                        </div>
+                        <div class="form-group">
+                          <label for="formTelFixo">Telefone Fixo</label>
+                          <input class="form-control" id="formTelFixo" placeholder="00 0000000" name="telefone" type="text" value="<?=$user['telefone']?>">
+                        </div>
+                        <div class="form-group">
+                          <label for="formFacebook">Facebook</label>
+                          <input class="form-control" id="formFacebook" placeholder="Facebook" name="facebook" type="text" value="<?=$user['facebook']?>">
+                        </div>
+                        <div class="form-group">
+                          <label for="fomrLogo">Logomarca</label>
+                          <input id="fomrLogo" name="logomarca" type="file">
                         </div>
                     </div>
                   </div>
                 </div>
                 <div class="box-footer">
-                  <button type="submit" class="btn btn-primary">Pesquisar</button>
+                  <!-- <button type="submit" class="btn btn-primary">Pesquisar</button> -->
                 </div>
-              </form>
-        </div>
-      <!--Tabela-->
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Usuários registrados</h3>
-              <div class="box-tools">
-              </div>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-                <tbody><tr>
-                  <th>ID</th>
-                  <th>Nome</th>
-                  <th>Data</th>
-                  <th>Email</th>
-                  <th>Desativar</th>
-                </tr>
-                <tr>
-                  <td>183</td>
-                  <td>Italo Nascimento</td>
-                  <td>28-10-17</td>
-                  <td>italonascimento89@gmail.com</td>
-                  <td><a href="#"><i class="fa fa-unlock" title="Bloquear" alt="Bloquear"></i></a></td>
-                </tr>
-              </tbody></table>
+            <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Endereço</h3>
+                </div>
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <div class="form-group">
+                          <label for="formCep">Cep</label>
+                          <input class="form-control" id="formCep" placeholder="Cep" name="cep" type="text" value="<?=$user['cep']?>">
+                      </div>
+                      <div class="form-group">
+                          <label for="formNumero">Número</label>
+                          <input class="form-control" id="formNumero" placeholder="" name="numero" type="text" value="<?=$user['numero']?>">
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label>Estado</label>
+                        <select class="form-control" name="estado" required="">
+                            <option selected="<?=$user['estado']?>"><?=$user['estado']?></option>
+                            <option value="Paraiba">Paraíba</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="formEnd">Endereço</label>
+                          <input class="form-control" id="formEnd" placeholder="" name="rua" required="" type="text" value="<?=$user['rua']?>">
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label>Cidade</label>
+                        <select class="form-control" name="cidade" required="">
+                            <option selected="<?=$user['cidade']?>"><?=$user['cidade']?></option>
+                            <option value="João_Pessoa">João Pessoa</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                          <label>Bairro</label>
+                          <select class="form-control" name="bairro" required="">
+                              <option selected="<?=$user['bairro']?>"><?=$user['bairro']?></option>
+                              <option value="Torre">Torre</option>
+                          </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-footer">
+                  <!-- <button type="submit" class="btn btn-primary">Pesquisar</button> -->
+                </div>
             </div>
-            <!-- /.box-body -->
-            <!--Box-Footer-->
-            <div class="box-footer clearfix">
-              <div class="col-sm-5">
-                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Monstrando 1 a 15 de 50 Registros</div>
-              </div>
-              <div class="col-sm-7">
-                <ul class="pagination pagination-sm no-margin pull-right">
-                  <li><a href="#">«</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">»</a></li>
-                </ul>
+            <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Informações financeiras</h3>
+                </div>
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <div class="form-group">
+                          <label>Data de Vencimento</label>
+                            <select class="form-control" name="data_vencimento" required="">
+                            <option selected="<?=$user['data_vencimento']?>"><?=$user['data_vencimento']?></option>
+                            <option value="5">05</option>
+                            <option value="20">20</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                          <label>Plano</label>
+                            <select class="form-control" name="plano" required="">
+                            <option selected="<?=$user['plano']?>"><?=$user['plano']?></option>
+                            <option value="Plano 1">Plano 1</option>
+                            <option value="Plano 2">Plano 2</option>
+                          </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-footer">
+                  <button type="button" class="btn btn-secondary">Cancelar</button>
+                  <input class="btn btn-primary pull-right" type="submit" value="Salvar e atualizar">
+                </div>
             </div>
-            </div>
+            </form>
           </div>
-          <!-- /.box -->
-          <!--Tabela-->
-      </div>
-    </div>
+        </div>
     </section>
     <!-- /.content -->
   </div>
@@ -447,34 +507,34 @@ desired effect
 </div>
 <!-- ./wrapper -->
 <!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="app/libs/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="app/libs/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Select2 -->
-<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
+<script src="app/libs/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- InputMask -->
-<script src="plugins/input-mask/jquery.inputmask.js"></script>
-<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<script src="app/libs/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="app/libs/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="app/libs/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 <!-- date-range-picker -->
-<script src="bower_components/moment/min/moment.min.js"></script>
-<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="app/libs/bower_components/moment/min/moment.min.js"></script>
+<script src="app/libs/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- bootstrap datepicker -->
-<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="app/libs/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- bootstrap color picker -->
-<script src="bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+<script src="app/libs/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
 <!-- bootstrap time picker -->
-<script src="plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="app/libs/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- SlimScroll -->
-<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="app/libs/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- iCheck 1.0.1 -->
-<script src="plugins/iCheck/icheck.min.js"></script>
+<script src="app/libs/plugins/iCheck/icheck.min.js"></script>
 <!-- FastClick -->
-<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<script src="app/libs/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="app/assets/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="app/assets/js/demo.js"></script>
+<!-- <script src="app/assets/js/demo.js"></script> -->
 <!-- Page script -->
 <script>
   $(function () {
@@ -506,5 +566,11 @@ desired effect
     })
   })
 </script>
+<?php
+    if(!empty($_SESSION['msg'])) {
+          echo "<script>alert('Usuario atualizado!')</script>";
+          unset($_SESSION['msg']);
+    }
+?>
 </body>
 </html>

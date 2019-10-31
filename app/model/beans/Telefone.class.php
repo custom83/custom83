@@ -1,8 +1,9 @@
 <?php
 
 class Telefone {
-  private $telefone = array();
+  private $telefone = "";
   private $INSTANCE_TELEFONE = null;
+  private $celular = "";
 
   public function __construct(){}
 
@@ -12,5 +13,8 @@ class Telefone {
   }
 
   public function getTelefone(){ return $this->telefone; }
-  public function setTelefone($telefone){ array_push($this->telefone, $telefone); }
+  public function setTelefone($telefone){ $this->telefone = $telefone; }
+
+  public function getCelular(){ return $this->celular; }
+  public function setCelular($celular){ $this->celular = $celular; }
 }
